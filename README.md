@@ -4,6 +4,18 @@
    <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4701.JPG" width="250"/>
 </p>
 
+## Login method
+
+Done
+
+## Logout method
+
+Done
+
+## Current session method
+
+Done
+
 ## Signup method
 
 In progress...
