@@ -4,6 +4,10 @@
    <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4701.JPG" width="250"/>
 </p>
 
+## Signup method
+
+In progress...
+
 ## Table of Contents
 
 * [Updating to New Releases](#updating-to-new-releases)
