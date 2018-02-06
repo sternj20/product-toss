@@ -18,7 +18,15 @@ Done
 
 ## Signup method
 
-In progress...
+Done
+
+## To-Do List (Redux)
+
+Added
+
+## Counter (Redux)
+
+Refactored
 
 ## Table of Contents
 
