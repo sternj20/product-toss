@@ -9,25 +9,29 @@ export class Counter extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { showCounter : false }
   }
 
-  testSetState() {
-    this.setState({ showCounter: true });
+  addNumber() {
+    this.props.onAdd(5);
+  }
+
+  removeNumber() {
+    this.props.onSubtraction(2);
   }
 
   render() {
+
+    const { onIncrement, onDecrement, count } = this.props;
     return (
       <View style={styles.container}>
 
-        <Button title="Show text" onPress={this.testSetState.bind(this)}></Button>
+        <Button title="Add 5" onPress={this.addNumber.bind(this)}></Button>
 
-        {this.state.showCounter ? <Text>Test text</Text> : null }
+        <CounterControl label="Increment" clicked={onIncrement} icon="ios-add"/>
+        <CounterOutput value={count}/>
+        <CounterControl label="Decrement" clicked={onDecrement} icon="ios-remove"/>
 
-        <CounterControl label="Increment" clicked={this.props.onIncrement} icon="ios-add"/>
-        <CounterOutput value={this.props.count}/>
-        <CounterControl label="Decrement" clicked={this.props.onDecrement} icon="ios-remove"/>
-
+        <Button title="Remove 2" onPress={this.removeNumber.bind(this)}></Button>
       </View>
     );
   }

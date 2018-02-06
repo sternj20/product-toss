@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from './actionTypes';
+import * as types from './actionTypes';
 
 export const Increment = () => (
   dispatch => {
@@ -12,10 +12,32 @@ export const Decrement = () => (
   }
 );
 
+export const Add = val => (
+  dispatch => {
+    dispatch(add(val));
+  }
+);
+
+export const Subtration = val => (
+  dispatch => {
+    dispatch(subtraction(val));
+  }
+);
+
 const increment = () => ({
-  type: INCREMENT
+  type: types.INCREMENT
 });
 
 const decrement = () => ({
-  type: DECREMENT
+  type: types.DECREMENT
+});
+
+const add = value => ({
+  type: types.ADD,
+  value
+});
+
+const subtraction = value => ({
+  type: types.SUBTRACTION,
+  value
 });

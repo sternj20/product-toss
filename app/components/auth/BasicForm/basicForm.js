@@ -23,39 +23,32 @@ export class BasicFormComponent extends Component {
   }
 
   render() {
+    const { email, password } = this.state;
     return (
-        <View>
+      <View>
+        <TextInput
+          style={styles.textInput}
+          placeholder='email'
+          returnKeyType='next'
+          keyboardType='email-address'
+          autoCapitalize='none'
+          onChangeText={this.handleEmailChange}
+          value={email}
+          underlineColorAndroid={'transparent'} />
 
-          <TextInput
-            style={styles.textInput}
-            placeholder='email'
-            returnKeyType='next'
-            keyboardType='email-address'
-            autoCapitalize='none'
-            onChangeText={this.handleEmailChange}
-            value={this.state.email}
-            underlineColorAndroid={'transparent'} />
+        <TextInput
+          style={styles.textInput}
+          placeholder='password'
+          secureTextEntry={true}
+          returnKeyType='done'
+          onChangeText={this.handlePasswordChange}
+          value={password}
+          underlineColorAndroid={'transparent'} />
 
-          <TextInput
-            style={styles.textInput}
-            placeholder='password'
-            secureTextEntry={true}
-            returnKeyType='done'
-            onChangeText={this.handlePasswordChange}
-            value={this.state.password}
-            underlineColorAndroid={'transparent'} />
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.handleButtonPress}>
-
-            <Text style={styles.buttonTitle}>
-              {this.props.buttonTitle}
-            </Text>
-
-          </TouchableOpacity>
-
-        </View>
-    )
+        <TouchableOpacity style={styles.button} onPress={this.handleButtonPress}>
+          <Text style={styles.buttonTitle}>{this.props.buttonTitle}</Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
 }

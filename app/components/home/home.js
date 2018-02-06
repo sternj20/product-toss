@@ -13,7 +13,9 @@ export class Home extends React.Component {
 
   logout() {
     this.props.logout();
-    Actions.reset('login');
+    setTimeout(() => {
+      Actions.reset('login');
+    }, 100);
   }
 
   render() {
@@ -27,6 +29,7 @@ export class Home extends React.Component {
         <View>
           <Text style={styles.title}>Welcome {this.props.user.email}</Text>
           <Button onPress={Actions.search} title="Go to Search"></Button>
+          <Button onPress={Actions.todolist} title="Start To-Do List"></Button>
         </View>
 
         <View style={styles.marginBox}>

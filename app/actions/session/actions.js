@@ -1,9 +1,5 @@
 import firebaseService from '../../enviroments/firebase';
-import { SESSION_RESTORING,
-         SESSION_LOADING,
-         SESSION_SUCCESS,
-         SESSION_ERROR,
-         SESSION_LOGOUT } from './actionsTypes';
+import * as types from './actionsTypes';
 
 export const restoreSession = () => (
   dispatch => {
@@ -44,7 +40,7 @@ export const signupUser = (email, password) => (
     firebaseService.auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
-        dispatch(sessionSuccess(user));
+        dispatch(signupSuccess(user));
       })
       .catch(error => {
         dispatch(sessionError(error.message));
@@ -68,23 +64,28 @@ export const logoutUser = () => (
 );
 
 const sessionRestoring = () => ({
-  type: SESSION_RESTORING
+  type: types.SESSION_RESTORING
 });
 
 const sessionLoading = () => ({
-  type: SESSION_LOADING
+  type: types.SESSION_LOADING
 });
 
 const sessionSuccess = user => ({
-  type: SESSION_SUCCESS,
+  type: types.SESSION_SUCCESS,
+  user
+});
+
+const signupSuccess = user => ({
+  type: types.SIGNUP_SUCCESS,
   user
 });
 
 const sessionError = error => ({
-  type: SESSION_ERROR,
+  type: types.SESSION_ERROR,
   error
 });
 
 const sessionLogout = () => ({
-  type: SESSION_LOGOUT
+  type: types.SESSION_LOGOUT
 });

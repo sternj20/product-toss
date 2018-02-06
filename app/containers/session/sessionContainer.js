@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   login: loginUser,
-  restore: restoreSession,
+  restore: restoreSession
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginFormComponent);
