@@ -1,4 +1,9 @@
 <p align="center">
+  <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4728.JPG" width="250"/>
+  <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4729.JPG" width="250"/>
+   <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4730.JPG" width="250"/>
+</p>
+<p align="center">
   <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4699.JPG" width="250"/>
   <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4700.JPG" width="250"/>
    <img src="https://github.com/skantus/React-Native-Firebase-Redux-Authentication/blob/master/assets/screenshots/IMG_4701.JPG" width="250"/>
@@ -18,7 +23,15 @@ Done
 
 ## Signup method
 
-In progress...
+Done
+
+## To-Do List (Redux)
+
+Added
+
+## Counter (Redux)
+
+Refactored
 
 ## Table of Contents
 
