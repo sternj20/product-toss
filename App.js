@@ -6,8 +6,8 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
-import store from './store/store.js';
-import CounterContainer from './containers/CounterContainer.js';
+import store from './src/store/store.js';
+import CounterContainer from './src/containers/CounterContainer.js';
 
 export default class App extends Component {
   render() {
