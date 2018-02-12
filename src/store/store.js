@@ -8,6 +8,8 @@ export const counter = (state = 0, action) => {
     return state - 1;
   case 'RESET':
     return 0;
+  case 'TESTING':
+    return state + 2000
   default:
     return state;
   }
