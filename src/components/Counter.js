@@ -13,10 +13,6 @@ export default class Counter extends Component {
   render() {
     return (
       <View>
-        <Image
-          source={require('./../../assets/img/elf.jpg')}
-          style={styles.voteImg}
-        />
         <Text
           style={styles.counter}
           onPress={this.props.reset}>
