@@ -22,7 +22,7 @@ class ItemList extends Component {
         }
 
         return (
-            <View>
+            <View style={styles.container}>
                 <View>
                     <Image source={{uri: this.props.items.url}} style={{width:300, height: 300}}/>
                 </View>
@@ -45,5 +45,13 @@ const mapDispatchToProps = (dispatch) => {
         fetchData: (url) => dispatch(itemsFetchData(url))
     };
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemList);

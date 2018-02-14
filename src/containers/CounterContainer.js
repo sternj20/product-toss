@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Counter from '../components/Counter.js';
 
 const mapStateToProps = state => ({
-  count: state
+  count: state.counter
 })
 
 const mapDispatchToProps = (dispatch) => ({
