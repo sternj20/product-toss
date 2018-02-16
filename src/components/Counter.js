@@ -8,9 +8,10 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { posVote, negVote, reset } from '../actions/counter.js';
+import { connect } from 'react-redux';
 
 
-export default class Counter extends Component {
+class Counter extends Component {
   render() {
     return (
       <View style={styles.counterView}>
@@ -21,12 +22,23 @@ export default class Counter extends Component {
         </Text>
         <View style={styles.thumbContainer}>
           <Icon name={'thumbs-down'} size={80} onPress={this.props.decrement} style={styles.thumbsDown} />
-          <Icon name={'thumbs-up'} size={80} onPress={this.props.increment} style={styles.thumbsUp}/>
+          <Icon name={'thumbs-up'} size={80} onPress={() => this.props.fetchData(this.props.items._id, this.props.items.posVotes)} style={styles.thumbsUp}/>
         </View>
       </View>
     );
   }
 }
+const mapStateToProps = state => ({
+  count: state.counter,
+  items: state.items
+})
+
+const mapDispatchToProps = (dispatch, props) => ({
+  fetchData: (id, val) => dispatch(posVote(id, val)),
+  increment: () => { dispatch({ type: 'DECREMENT' }) },
+  decrement: () => { dispatch({ type: 'DECREMENT' }) },
+  reset: () => { dispatch({ type: 'RESET' }) },
+})
 
 const styles = StyleSheet.create({
   counterView:{
@@ -53,3 +65,5 @@ const styles = StyleSheet.create({
     color:'red'
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

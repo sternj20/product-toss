@@ -26,6 +26,8 @@ class ItemList extends Component {
                 <View>
                     <Image source={{uri: this.props.items.url}} style={{width:300, height: 300}}/>
                 </View>
+                <Text>Positive Votes:{this.props.items.posVotes}</Text>
+                <Text>Negative Votes:{this.props.items.negVotes}</Text>
             </View>
         );
     }
@@ -36,7 +38,7 @@ const mapStateToProps = (state) => {
     return {
         items: state.items,
         hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
+        isLoading: state.itemsIsLoading,
     };
 };
 

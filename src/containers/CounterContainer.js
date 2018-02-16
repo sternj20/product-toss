@@ -3,12 +3,24 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import Counter from '../components/Counter.js';
 
+
 const mapStateToProps = state => ({
-  count: state.counter
+  count: state.counter,
+  items: state.items
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  increment: () => { dispatch({ type: 'INCREMENT' }) },
+
+  increment: () => { 
+  	fetch(`https://product-toss-backend.herokuapp.com/api/imgs/${id}/positive`, {
+  		method: 'PUT'
+  	}).then((response) => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+  	dispatch({ type: 'INCREMENT' }) 
+  	})
+  },
   decrement: () => { dispatch({ type: 'DECREMENT' }) },
   reset: () => { dispatch({ type: 'RESET' }) },
 })
