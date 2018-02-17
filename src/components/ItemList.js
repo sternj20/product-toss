@@ -24,7 +24,11 @@ class ItemList extends Component {
         return (
             <View style={styles.container}>
                 <View>
-                    <Image source={{uri: this.props.items.url}} style={{width:300, height: 300}}/>
+                    {this.props.items.map((item) => {
+                        return (
+                            <Image source={{uri:item.url}} key={item._id} style={{width:300, height: 300}}/>
+                        )
+                    })}
                 </View>
                 <Text>Votes:{this.props.items.posVotes}</Text>
             </View>
