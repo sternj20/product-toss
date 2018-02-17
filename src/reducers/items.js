@@ -26,8 +26,8 @@ export function items(state = [], action) {
             //Pick two random images
             while(counter <= 2){
                 newImg = action.items.splice(Math.floor(Math.random() * action.items.length), 1)
-                items = items.concat(newImg)           
-                counter++     
+                items = items.concat(newImg)
+                counter++;
             }
             return items
         default:

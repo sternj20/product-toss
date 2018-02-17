@@ -24,13 +24,15 @@ class ItemList extends Component {
         return (
             <View style={styles.container}>
                 <View>
-                    {this.props.items.map((item) => {
+                    {this.props.items.map((item, index) => {
                         return (
-                            <Image source={{uri:item.url}} key={item._id} style={{width:300, height: 300}}/>
+                            <View key={`${index}Container`}>
+                                <Image source={{uri:item.url}} key={item._id} style={{width:300, height: 200}}/>
+                                <Text key={index}>Votes:{item.posVotes}</Text>
+                            </View>
                         )
                     })}
                 </View>
-                <Text>Votes:{this.props.items.posVotes}</Text>
             </View>
         );
     }

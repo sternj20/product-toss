@@ -16,8 +16,12 @@ class Counter extends Component {
     return (
       <View style={styles.counterView}>
         <View style={styles.thumbContainer}>
-          <Icon name={'thumbs-down'} size={80} onPress={this.props.decrement} style={styles.thumbsDown} />
-          <Icon name={'thumbs-up'} size={80} onPress={() => this.props.fetchData(this.props.items._id, this.props.items.posVotes)} style={styles.thumbsUp}/>
+
+          {this.props.items.map((item, index) => {
+            return(
+            <Icon key={index} name={'thumbs-up'} size={80} onPress={() => this.props.fetchData(item._id, item.posVotes)} style={styles.thumbsUp}/>
+            )
+          })}
         </View>
       </View>
     );
