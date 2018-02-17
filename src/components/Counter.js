@@ -15,11 +15,6 @@ class Counter extends Component {
   render() {
     return (
       <View style={styles.counterView}>
-        <Text
-          style={styles.counter}
-          onPress={reset}>
-          Total Votes: {this.props.count}
-        </Text>
         <View style={styles.thumbContainer}>
           <Icon name={'thumbs-down'} size={80} onPress={this.props.decrement} style={styles.thumbsDown} />
           <Icon name={'thumbs-up'} size={80} onPress={() => this.props.fetchData(this.props.items._id, this.props.items.posVotes)} style={styles.thumbsUp}/>
@@ -29,7 +24,6 @@ class Counter extends Component {
   }
 }
 const mapStateToProps = state => ({
-  count: state.counter,
   items: state.items
 })
 

@@ -6,7 +6,6 @@ export function posVote(id, val){
 		    if (!response.ok) {
 		        throw Error(response.statusText);
 		    }
-		    dispatch({ type: 'INCREMENT' }) 
 		    })
   }
 }
