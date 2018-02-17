@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 // import store from './src/store/store.js';
 import configureStore from './src/store/configureStore';
-import Counter from './src/components/Counter.js';
 import ItemList from './src/components/ItemList.js';
 
 
@@ -19,7 +18,6 @@ export default class App extends Component {
       <Provider store={store}>
         <View style={styles.container}>
           <ItemList/>
-          <Counter/>
         </View>
       </Provider>
     );

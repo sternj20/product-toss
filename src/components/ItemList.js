@@ -8,6 +8,7 @@ import {
   View,
   Image
 } from 'react-native';
+import VotingBar from './VotingBar.js'
 class ItemList extends Component {
     componentDidMount() {
         this.props.fetchData('https://product-toss-backend.herokuapp.com/api/imgs');
@@ -27,12 +28,16 @@ class ItemList extends Component {
                     {this.props.items.map((item, index) => {
                         return (
                             <View key={`${index}Container`}>
-                                <Image source={{uri:item.url}} key={item._id} style={{width:300, height: 200}}/>
+                                <Image 
+                                    source={{uri:item.url}} 
+                                    key={item._id} 
+                                    style={styles.image}/>
                                 <Text key={index}>Votes:{item.posVotes}</Text>
                             </View>
                         )
                     })}
                 </View>
+                <VotingBar/>
             </View>
         );
     }
@@ -59,6 +64,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  image: {
+    marginTop:100,
+    width:300,
+    height: 200
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
