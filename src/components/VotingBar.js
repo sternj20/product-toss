@@ -12,7 +12,7 @@ class VotingBar extends Component{
             				<View key={`${index}container`}>
         								<Icon
         									key={`thumb${index}`}
-        									name={voteIcon(index)}
+        									name={voteIcon(index, this.props.items.length)}
         									size={80}
         									onPress={() => this.props.vote(item._id, item.posVotes)}
         									style={styles.thumbsUp}>
@@ -26,8 +26,8 @@ class VotingBar extends Component{
 		}
 }
 
-const voteIcon = (index) => {
-	if(index===0) return 'arrow-up'
+const voteIcon = (index, length) => {
+	if(index===0 && length > 1) return 'arrow-up'
 		return 'arrow-down'
 }
 const mapStateToProps = state => ({
