@@ -1,4 +1,4 @@
-export function posVote(id, val){
+export function vote(id, val){
   return (dispatch) => {
 	  fetch(`https://product-toss-backend.herokuapp.com/api/imgs/${id}/${val}/positive`, {
 	  method: 'PUT'})
@@ -7,16 +7,5 @@ export function posVote(id, val){
 		        throw Error(response.statusText);
 		    }
 		    })
-  }
-}
-
-export function negVote(){
-  return {
-    type: 'DECREMENT'
-  }
-}
-export function reset(){
-  return {
-    type: 'RESET'
   }
 }
