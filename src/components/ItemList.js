@@ -32,7 +32,7 @@ class ItemList extends Component {
                                     source={{uri:item.url}} 
                                     key={item._id} 
                                     style={styles.image}/>
-                                <Text key={index}>Votes:{item.posVotes}</Text>
+                                <Text key={index}>Votes:{item.votes}</Text>
                             </View>
                         )
                     })}

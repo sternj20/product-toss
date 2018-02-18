@@ -14,7 +14,7 @@ class VotingBar extends Component{
         									key={`thumb${index}`}
         									name={voteIcon(index, this.props.items.length)}
         									size={80}
-        									onPress={() => this.props.vote(item._id, item.posVotes)}
+        									onPress={() => this.props.vote(item._id, item.votes)}
         									style={styles.thumbsUp}>
         									</Icon>
             				</View>
