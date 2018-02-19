@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Button, Image, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
+import  VotingBar  from '../votingBar/votingBar';
 
 export class Home extends React.Component {
   componentDidMount() {
@@ -27,8 +27,10 @@ export class Home extends React.Component {
         <View style={styles.container}>
 
         <View style={styles.marginBox}>
+          <Text style={styles.title}>Welcome {this.props.user.email}</Text>
           <Button onPress={this.logout.bind(this)} title="Logout"></Button>
         </View>
+        <VotingBar/>
           {this.props.items.map((item, index) => {
               return (
                   <View key={`${index}Container`}>
@@ -40,16 +42,6 @@ export class Home extends React.Component {
                   </View>
               )
           })}
-        <View>
-          <Text style={styles.title}>Welcome {this.props.user.email}</Text>
-          <Button onPress={Actions.search} title="Go to Search"></Button>
-          <Button onPress={Actions.todolist} title="Start To-Do List"></Button>
-        </View>
-
-        <View style={styles.marginBox}>
-          <Icon name="logo-github" size={40}/>
-          <Text>@skantus</Text>
-        </View>
 
       </View>
     );
