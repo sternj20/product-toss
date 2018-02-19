@@ -30,7 +30,7 @@ export class LoginFormComponent extends Component {
     return (
       <KeyboardAwareScrollView style={styles.scrollView}>
         <View style={styles.imageBox}>
-          <Image style={styles.image} source={{ uri: 'https://lh3.googleusercontent.com/-whXBCDVxIto/Vz2Rsyz-UjI/AAAAAAAAiJc/UjvR-M2b9tY5SyKFkDY6Q_MbusEINRXkQ/w530-h530-n/Firebase_16-logo.png' }}/>
+          <Image style={styles.image} source={{ uri: 'https://bitbucket.org/repo/e96xBk/images/270609031-Product%20Toss%20Logo.jpg' }}/>
         </View>
         <View style={styles.loginBox}>
           {loading ? <LoadingIndicator color="#ffffff"

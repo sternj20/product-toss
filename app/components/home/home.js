@@ -23,14 +23,6 @@ export class Home extends React.Component {
   }
 
       render() {
-        if (!this.props.items) {
-            return <Text>Sorry! There was an error loading the items</Text>;
-        }
-
-        if (this.props.isLoading) {
-            return <Text>Loading…</Text>;
-        }
-
         return (
         <View style={styles.container}>
 
