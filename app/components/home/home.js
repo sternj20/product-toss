@@ -15,7 +15,7 @@ export class Home extends React.Component {
   }
 
   logout() {
-    console.log('working')
+    // console.log('working')
     this.props.logout();
     setTimeout(() => {
       Actions.reset('login');
