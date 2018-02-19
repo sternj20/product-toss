@@ -15,7 +15,7 @@ export class Home extends React.Component {
   }
 
   logout() {
-    console.log('working')
+    // console.log('working')
     this.props.logout();
     setTimeout(() => {
       Actions.reset('login');
@@ -37,17 +37,17 @@ export class Home extends React.Component {
         <View style={styles.marginBox}>
           <Button onPress={this.logout.bind(this)} title="Logout"></Button>
         </View>
-                    {this.props.items.map((item, index) => {
-                        return (
-                            <View key={`${index}Container`}>
-                                <Image 
-                                    source={{uri:item.url}} 
-                                    key={item._id} 
-                                    style={styles.image}/>
-                                <Text key={index}>Votes:{item.posVotes}</Text>
-                            </View>
-                        )
-                    })}
+          {this.props.items.map((item, index) => {
+              return (
+                  <View key={`${index}Container`}>
+                      <Image 
+                          source={{uri:item.url}} 
+                          key={item._id} 
+                          style={styles.image}/>
+                      <Text key={index}>Votes:{item.votes}</Text>
+                  </View>
+              )
+          })}
         <View>
           <Text style={styles.title}>Welcome {this.props.user.email}</Text>
           <Button onPress={Actions.search} title="Go to Search"></Button>
