@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: "AIzaSyBx0YuFCeqedFUGgpmdZOr7T7wGzy9N8Qo",
-  authDomain: "pulso-3f393.firebaseapp.com",
-  databaseURL: "https://pulso-3f393.firebaseio.com",
-  projectId: "pulso-3f393",
-  storageBucket: "pulso-3f393.appspot.com",
-  messagingSenderId: "677974717412"
+  apiKey: "AIzaSyBkAyVaVZGKE4uexiuCzvwAfSWJ_56tELg",
+  authDomain: "product-toss.firebaseapp.com",
+  databaseURL: "https://product-toss.firebaseio.com",
+  projectId: "product-toss",
+  storageBucket: "product-toss.appspot.com",
+  messagingSenderId: "621287710137"
 }
 
 let instance = null;
@@ -24,18 +24,3 @@ class FirebaseService {
 const firebaseService = new FirebaseService().app;
 export default firebaseService;
 
-/*
-import * as firebase from 'firebase';
-
-const config = {
-  apiKey: "AIzaSyBx0YuFCeqedFUGgpmdZOr7T7wGzy9N8Qo",
-  authDomain: "pulso-3f393.firebaseapp.com",
-  databaseURL: "https://pulso-3f393.firebaseio.com",
-  projectId: "pulso-3f393",
-  storageBucket: "pulso-3f393.appspot.com",
-  messagingSenderId: "677974717412"
-};
-firebase.initializeApp(config);
-
-export default firebase;
-*/

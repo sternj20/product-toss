@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { LoginFormComponent } from '../../components/auth/LoginForm/loginForm';
-import { loginUser, restoreSession } from '../../actions/session/actions';
+import { loginUser, loginDemoUser, restoreSession } from '../../actions/session/actions';
 
 const mapStateToProps = state => ({
   routes: state.routes,
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   login: loginUser,
+  loginDemoUser,
   restore: restoreSession
 };
 

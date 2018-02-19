@@ -33,6 +33,22 @@ export const loginUser = (email, password) => (
   }
 );
 
+export const loginDemoUser = (email, password) => (
+  dispatch => {
+    dispatch(sessionLoading());
+
+    firebaseService.auth()
+      .signInWithEmailAndPassword('test@test.com', 'testing')
+      .then(user => {
+        dispatch(sessionSuccess(user));
+      })
+      .catch(error => {
+        dispatch(sessionError(error.message));
+      });
+
+  }
+);
+
 export const signupUser = (email, password) => (
   dispatch => {
     dispatch(sessionLoading());

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, Image, Button } from 'react-native';
+import { View, Alert, Image, Button, TouchableOpacity, Text } from 'react-native';
 import { BasicFormComponent } from '../BasicForm/basicForm';
 import { LoadingIndicator } from '../../loadingIndicator/loadingIndicator';
 import { styles } from '../BasicForm/styles';
@@ -26,7 +26,7 @@ export class LoginFormComponent extends Component {
   }
 
   render() {
-    const { login, loading } = this.props;
+    const { login, loginDemoUser, loading } = this.props;
     return (
       <KeyboardAwareScrollView style={styles.scrollView}>
         <View style={styles.imageBox}>
@@ -40,9 +40,16 @@ export class LoginFormComponent extends Component {
         </View>
         <View>
         {loading ? null :
-          <Button onPress={Actions.signup}
-                  title="Signup"
-                  color="white"></Button> }
+
+        <View>
+        <TouchableOpacity style={styles.button} onPress={Actions.signup}>
+          <Text style={styles.buttonTitle}>signup</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={loginDemoUser}>
+          <Text style={styles.buttonTitle}>demo</Text>
+        </TouchableOpacity>
+        </View>
+   }
         </View>
       </KeyboardAwareScrollView>
     );
