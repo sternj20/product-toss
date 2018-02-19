@@ -11,9 +11,9 @@ const mapStateToProps = state => ({
 	isLoading: state.itemsIsLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps =  {
   logout: logoutUser,
-  fetchData: (url) => dispatch(itemsFetchData(url))
-});
+  fetchData: itemsFetchData
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
