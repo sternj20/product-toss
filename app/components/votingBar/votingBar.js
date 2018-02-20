@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-// import { vote } from '../actions/vote.js';
+import { vote } from '../../actions/vote/vote';
 import { connect } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native'
 class VotingBar extends Component{

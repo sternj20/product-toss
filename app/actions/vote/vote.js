@@ -1,6 +1,6 @@
-import { itemsFetchData } from '../actions/items';
+import { itemsFetchData } from '../items/items';
 
-export function vote(id, val){
+export const vote = (id, val) =>{
   return (dispatch) => {
 	  fetch(`https://product-toss-backend.herokuapp.com/api/imgs/${id}/${val}/`, {
 	  method: 'PUT'})
