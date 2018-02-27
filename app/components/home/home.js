@@ -24,25 +24,25 @@ export class Home extends React.Component {
 
       render() {
         return (
-        <View style={styles.container}>
+        <View >
 
-        <View style={styles.marginBox}>
+        <View >
           <Text style={styles.title}>Welcome {this.props.user.email}</Text>
           <Button onPress={this.logout.bind(this)} title="Logout"></Button>
         </View>
-        <VotingBar/>
           {this.props.items.map((item, index) => {
               return (
-                  <View key={`${index}Container`}>
+                  <View key={`${index}Container`} style={styles.container}>
                       <Image 
                           source={{uri:item.url}} 
                           key={item._id} 
                           style={styles.image}/>
-                      <Text key={index}>Votes:{item.votes}</Text>
                   </View>
               )
           })}
-
+        <View style={styles.votingBar}>
+          <VotingBar/>
+        </View>
       </View>
     );
   }

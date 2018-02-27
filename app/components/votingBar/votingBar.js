@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { vote } from '../../actions/vote/vote';
 import { connect } from 'react-redux';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 class VotingBar extends Component{
     render(){
       return(
-        <View style={styles.view} style={styles.container}>
+        <View style={styles.container}>
             {this.props.items.map((item, index) => {
                 return(
                     <View key={`${index}container`}>
+                      <TouchableOpacity onPress={() => this.props.vote(item._id, item.votes)}>
                         <Icon
                           key={`thumb${index}`}
                           name={voteIcon(index, this.props.items.length)}
                           size={80}
-                          onPress={() => this.props.vote(item._id, item.votes)}
+                          
                           style={styles.thumbsUp}>
                           </Icon>
+                          </TouchableOpacity>
                     </View>
                 )
                 })}
@@ -40,9 +42,10 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 const styles = StyleSheet.create({
   container: {
-  flex: 1,
+  marginBottom: 50,
   flexDirection: 'row',
-  top: '50%',
+  alignItems: 'center',
+  justifyContent: 'center'
   }
 })
 export default connect(mapStateToProps, mapDispatchToProps)(VotingBar)
