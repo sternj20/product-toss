@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Button, Image, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
+import  VotingBar  from '../votingBar/votingBar';
 
 export class Home extends React.Component {
   componentDidMount() {
@@ -23,42 +23,26 @@ export class Home extends React.Component {
   }
 
       render() {
-        if (!this.props.items) {
-            return <Text>Sorry! There was an error loading the items</Text>;
-        }
-
-        if (this.props.isLoading) {
-            return <Text>Loading…</Text>;
-        }
-
         return (
-        <View style={styles.container}>
+        <View >
 
-        <View style={styles.marginBox}>
+        <View >
+          <Text style={styles.title}>Welcome {this.props.user.email}</Text>
           <Button onPress={this.logout.bind(this)} title="Logout"></Button>
         </View>
           {this.props.items.map((item, index) => {
               return (
-                  <View key={`${index}Container`}>
+                  <View key={`${index}Container`} style={styles.container}>
                       <Image 
                           source={{uri:item.url}} 
                           key={item._id} 
                           style={styles.image}/>
-                      <Text key={index}>Votes:{item.votes}</Text>
                   </View>
               )
           })}
-        <View>
-          <Text style={styles.title}>Welcome {this.props.user.email}</Text>
-          <Button onPress={Actions.search} title="Go to Search"></Button>
-          <Button onPress={Actions.todolist} title="Start To-Do List"></Button>
+        <View style={styles.votingBar}>
+          <VotingBar/>
         </View>
-
-        <View style={styles.marginBox}>
-          <Icon name="logo-github" size={40}/>
-          <Text>@skantus</Text>
-        </View>
-
       </View>
     );
   }

@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     marginTop: 20
   },
   image: {
-    width: 120,
+    width: 400,
     height: 120,
   },
   scrollView: {

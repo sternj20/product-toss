@@ -23,7 +23,7 @@ export class SignupFormComponent extends Component {
     return (
       <KeyboardAwareScrollView style={styles.scrollView}>
         <View style={styles.imageBox}>
-          <Image style={styles.image} source={{ uri: 'https://appjoy.org/wp-content/uploads/2016/06/firebase-authentication-logo1.png' }}/>
+          <Image style={styles.image} source={{ uri: 'https://bitbucket.org/repo/e96xBk/images/270609031-Product%20Toss%20Logo.jpg' }}/>
         </View>
         <View style={styles.loginBox}>
             {loading ? <LoadingIndicator color="#ffffff"
