@@ -56,7 +56,17 @@ export const signupUser = (email, password) => (
     firebaseService.auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
+        let options = {
+          method: 'POST',
+          body: JSON.stringify(user),
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+            },
+        };
+        return fetch('https://product-toss-backend.herokuapp.com/api/user/new/', options)
         dispatch(signupSuccess(user));
+
       })
       .catch(error => {
         dispatch(sessionError(error.message));
