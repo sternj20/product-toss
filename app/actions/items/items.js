@@ -1,3 +1,6 @@
+import { Actions } from 'react-native-router-flux';
+
+
 export function itemsHasErrored(bool) {
     return {
         type: 'ITEMS_HAS_ERRORED',
@@ -38,3 +41,36 @@ export function itemsFetchData(url) {
             .catch(() => dispatch(itemsHasErrored(true)));
     };
 }
+
+export function upload(uri){
+
+    return (dispatch) => {
+    let apiUrl = 'https://product-toss-backend.herokuapp.com/api/imgs/';
+    let uriParts = uri.split('.');
+    let fileType = uriParts[uriParts.length - 1];
+
+    let formData = new FormData();
+    formData.append('photo', {
+      uri,
+      name: `photo.${fileType}`,
+      type: `image/${fileType}`,
+    });
+    let options = {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+        return fetch(apiUrl, options).then((resp) => resp.json()) // Transform the data into json
+        .then(function(data) {
+          let location = data.location
+          //to do -- refactor these functions into actions/reducer
+          //then take this location and update state with it
+          dispatch({ type: 'ITEM_UPLOAD', recentUpload: location})
+          //put componnet here for new images
+          Actions.reset('signup')
+        })
+    }
+  }
