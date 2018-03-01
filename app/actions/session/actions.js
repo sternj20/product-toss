@@ -83,8 +83,12 @@ const sessionRestoring = () => ({
   type: types.SESSION_RESTORING
 });
 
-const sessionLoading = () => ({
+export const sessionLoading = () => ({
   type: types.SESSION_LOADING
+});
+
+export const loadingSuccess = () => ({
+  type: types.LOADING_SUCCESS
 });
 
 const sessionSuccess = user => ({

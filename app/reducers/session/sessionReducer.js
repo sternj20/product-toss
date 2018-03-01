@@ -17,6 +17,8 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, restoring: false, loading: true, error: null }
     case types.SESSION_SUCCESS:
       return { ...state, restoring: false, loading: false, user: action.user, error: null, logged: true, registered: null }
+    case types.LOADING_SUCCESS:
+      return { ...state, loading: false }
     case types.SIGNUP_SUCCESS:
       return { ...state, restoring: false, loading: false, user: action.user, error: null, logged: null, registered: true }
     case types.SESSION_ERROR:
