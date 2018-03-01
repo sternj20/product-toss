@@ -1,4 +1,9 @@
-const itemReducer = (state = [], action) => {
+const initialState = {
+    items: [],
+    recentUpload: ''
+}
+
+const itemReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ITEMS_FETCH_DATA_SUCCESS':
             let items = []
@@ -9,7 +14,9 @@ const itemReducer = (state = [], action) => {
                 items = items.concat(newImg)
                 counter++;
             }
-            return items
+            return { ...state, items}
+        case 'ITEM_UPLOAD':
+            return { ...state, recentUpload:action.recentUpload}
         default:
             return state;
     }

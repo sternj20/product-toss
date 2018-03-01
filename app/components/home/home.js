@@ -14,54 +14,17 @@ export class Home extends React.Component {
   constructor(props) {
     super(props);
   }
-  
 
-
-  upload = async (uri) => {
-    // console.log(uri)
-    let apiUrl = 'https://product-toss-backend.herokuapp.com/api/imgs/';
-
-  // Note:
-  // Uncomment this if you want to experiment with local server
-  //
-  // if (Constants.isDevice) {
-  //   apiUrl = `https://your-ngrok-subdomain.ngrok.io/upload`;
-  // } else {
-  //   apiUrl = `http://localhost:3000/upload`
-  // }
-
-  let uriParts = uri.split('.');
-  let fileType = uriParts[uriParts.length - 1];
-
-  let formData = new FormData();
-  formData.append('photo', {
-    uri,
-    name: `photo.${fileType}`,
-    type: `image/${fileType}`,
-  });
-  console.log(formData)
-  let options = {
-    method: 'POST',
-    body: formData,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'multipart/form-data',
-    },
-  };
-
-  return fetch(apiUrl, options);
-}
-choosePhoto = async () => {
-  let pickerResult = await ImagePicker.launchImageLibraryAsync({
-    exif: true,
-    allowsEditing: false,
-    quality: 0.7,
-    base64: true
-  })
-  this.upload(pickerResult.uri)
-}
-logout() {
-    // console.log('working')
+  choosePhoto = async () => {
+    let pickerResult = await ImagePicker.launchImageLibraryAsync({
+      exif: true,
+      allowsEditing: false,
+      quality: 0.7,
+      base64: true
+    })
+    this.props.upload(pickerResult.uri)
+  }
+  logout() {
     this.props.logout();
     setTimeout(() => {
       Actions.reset('login');
@@ -89,6 +52,7 @@ logout() {
         })}
         <View style={styles.votingBar}>
           <VotingBar/>
+          <Text>{this.props.recentUpload}</Text>
         </View>
       </View>
       );
