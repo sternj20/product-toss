@@ -6,10 +6,9 @@ import { logoutUser } from '../../actions/session/actions';
 const mapStateToProps = state => ({
 	routes: state.routes,
 	user: state.sessionReducer.user,
-	items: state.itemReducer.items,
 	recentUpload: state.itemReducer.recentUpload,
 	hasErrored: state.itemsHasErrored,
-	isLoading: state.itemsIsLoading
+  	loading: state.sessionReducer.loading,
 });
 
 const mapDispatchToProps =  {

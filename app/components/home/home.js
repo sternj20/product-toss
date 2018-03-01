@@ -4,6 +4,7 @@ import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
 import  VotingBar  from '../votingBar/votingBar';
+import  VotingGallery  from '../votingGallery/votingGallery';
 import { ImagePicker, FileSystem } from 'expo'
 
 export class Home extends React.Component {
@@ -33,27 +34,17 @@ export class Home extends React.Component {
 
 
   render() {
+    const { loading } = this.props;
+
     return (
       <View >
-        <View >
-          <Text style={styles.title}>Welcome {this.props.user.email}</Text>
-          <Button onPress={this.logout.bind(this)} title="Logout"></Button>
-          <Button onPress={this.choosePhoto} title="Upload Photo"/>
-        </View>
-        {this.props.items.map((item, index) => {
-          return (
-            <View key={`${index}Container`} style={styles.container}>
-            <Image 
-            source={{uri:item.url}} 
-            key={item._id} 
-            style={styles.image}/>
-            </View>
-            )
-        })}
-        <View style={styles.votingBar}>
-          <VotingBar/>
-          <Text>{this.props.recentUpload}</Text>
-        </View>
+
+        {loading ? <LoadingIndicator color="#ffffff"
+                                       size="large"/> : <View >
+              <Text style={styles.title}>Welcome {this.props.user.email}</Text>
+              <Button onPress={this.logout.bind(this)} title="Logout"></Button>
+              <Button onPress={this.choosePhoto} title="Upload Photo"/>
+            <VotingGallery/></View>}
       </View>
       );
   }
