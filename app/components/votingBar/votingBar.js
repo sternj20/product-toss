@@ -10,7 +10,7 @@ class VotingBar extends Component{
             {this.props.items.map((item, index) => {
                 return(
                     <View key={`${index}container`}>
-                      <TouchableOpacity onPress={() => this.props.vote(item._id, item.votes)}>
+                      <TouchableOpacity onPress={() => this.props.vote(this.props.user.uid, item._id, item.votes)}>
                         <Icon
                           key={`thumb${index}`}
                           name={voteIcon(index, this.props.items.length)}
@@ -33,11 +33,12 @@ const voteIcon = (index, length) => {
     return 'arrow-down'
 }
 const mapStateToProps = state => ({
-  items: state.itemReducer.items
+  items: state.itemReducer.items,
+  user: state.sessionReducer.user
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  vote: (id, val) => dispatch(vote(id, val)),
+  vote: (uID, val, votes) => dispatch(vote(uID, val, votes))
 })
 
 const styles = StyleSheet.create({
