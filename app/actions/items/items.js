@@ -26,7 +26,7 @@ export function itemsFetchData(url) {
 
 export function upload(uri){
     return (dispatch) => {
-        let apiUrl = 'https://product-toss-backend.herokuapp.com/api/imgs/';
+        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/`;
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
 

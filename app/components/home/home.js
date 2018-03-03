@@ -9,7 +9,7 @@ import { ImagePicker, FileSystem } from 'expo'
 
 export class Home extends React.Component {
   componentDidMount() {
-    this.props.fetchData('https://product-toss-backend.herokuapp.com/api/imgs');
+    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/imgs/${this.props.user.uid}`);
   }
 
   constructor(props) {
