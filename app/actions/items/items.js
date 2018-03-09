@@ -2,6 +2,7 @@ import { Actions } from 'react-native-router-flux';
 import { sessionLoading, loadingSuccess } from '../session/actions'
 
 
+
 export function itemsFetchDataSuccess(items) {
     return {
         type: 'ITEMS_FETCH_DATA_SUCCESS',
@@ -14,6 +15,7 @@ export function itemsFetchData(url) {
     return (dispatch) => {
         fetch(url)
         .then((response) => {
+
             if (!response.ok) {
                 throw Error(response.statusText);
             }
@@ -24,9 +26,10 @@ export function itemsFetchData(url) {
     };
 }
 
-export function upload(uri){
+
+export function upload(uri, uid){
     return (dispatch) => {
-        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/`;
+        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`;
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
 
