@@ -21,5 +21,14 @@ export const styles = StyleSheet.create({
   },
   votingBar: {
     top: '-50%'
-  }
+  },
+  button: {
+    backgroundColor: '#88cc88',
+    height: 40,
+    margin: 10,
+    borderRadius: 5,
+    padding: 3,
+    alignItems: 'center',
+    justifyContent:'center',
+  },
 });

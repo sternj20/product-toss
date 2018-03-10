@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Button, Image, Text } from 'react-native';
-import { itemsFetchData } from '../../actions/items/items';
+import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
+import { Actions } from 'react-native-router-flux';
 
 class userImages extends React.Component {
-
-    componentDidMount() {
-    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/imgs/${this.props.user.uid}`, 'user');
-  }
 	render(){
 		return(
 			<View>
-
+		        <TouchableOpacity style={styles.button} onPress={Actions.home}>
+		          <Text style={styles.button}>Back to gallery</Text>
+		        </TouchableOpacity>
 		        {this.props.userUploads.map((item, index) => {
 		          return (
 		            <View key={`${index}Container`} style={styles.container}>
@@ -24,6 +22,7 @@ class userImages extends React.Component {
 		            </View>
 		            )
 		        })}
+
 			</View>
 		)
 
@@ -36,8 +35,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  fetchData: itemsFetchData
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(userImages)

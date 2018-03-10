@@ -33,7 +33,7 @@ const voteIcon = (index, length) => {
     return 'arrow-down'
 }
 const mapStateToProps = state => ({
-  items: state.itemReducer.votedImages,
+  items: state.itemReducer.images,
   user: state.sessionReducer.user
 })
 

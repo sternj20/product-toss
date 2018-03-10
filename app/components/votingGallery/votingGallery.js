@@ -28,7 +28,7 @@ class VotingGallery extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	items: state.itemReducer.votedImages	
+	items: state.itemReducer.images	
 })
 
 const mapDispatchToProps =  {
