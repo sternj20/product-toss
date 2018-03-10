@@ -34,8 +34,6 @@ export class Home extends React.Component {
 
   showImages(){
     Actions.reset('userImages')
-    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/imgs/${this.props.user.uid}`);
-
   }
 
 
@@ -49,7 +47,7 @@ export class Home extends React.Component {
                                        size="large"/> : <View >
               <Text style={styles.title}>Welcome {this.props.user.email}</Text>
               <Button onPress={this.logout.bind(this)} title="Logout"></Button>
-              <Button onPress={this.showImages.bind(this)} title="Your Images"/>
+              <Button onPress={this.showImages} title="Your Images"/>
               <Button onPress={this.choosePhoto.bind(this)} title="Upload Photo"/>
             <VotingGallery/></View>}
       </View>

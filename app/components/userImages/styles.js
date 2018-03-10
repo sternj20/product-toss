@@ -2,15 +2,18 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   image: {
+    // flex: 1,
     width: 100,
     height: 100,
     marginTop:20,
-    marginBottom: 200
+    // marginBottom: 200
   },
   primary: {
     color: 'rgb(116, 70, 195)'
