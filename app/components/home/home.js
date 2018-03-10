@@ -9,7 +9,7 @@ import { ImagePicker, FileSystem } from 'expo'
 
 export class Home extends React.Component {
   componentDidMount() {
-    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/imgs/${this.props.user.uid}`);
+    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
   }
 
   constructor(props) {
@@ -23,13 +23,17 @@ export class Home extends React.Component {
       quality: 0.7,
       base64: true
     })
-    this.props.upload(pickerResult.uri)
+    this.props.upload(pickerResult.uri, this.props.user.uid)
   }
   logout() {
     this.props.logout();
     setTimeout(() => {
       Actions.reset('login');
     }, 100);
+  }
+
+  showImages(){
+    Actions.reset('userImages')
   }
 
 
@@ -43,7 +47,8 @@ export class Home extends React.Component {
                                        size="large"/> : <View >
               <Text style={styles.title}>Welcome {this.props.user.email}</Text>
               <Button onPress={this.logout.bind(this)} title="Logout"></Button>
-              <Button onPress={this.choosePhoto} title="Upload Photo"/>
+              <Button onPress={this.showImages} title="Your Images"/>
+              <Button onPress={this.choosePhoto.bind(this)} title="Upload Photo"/>
             <VotingGallery/></View>}
       </View>
       );

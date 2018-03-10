@@ -1,5 +1,6 @@
 const initialState = {
-    items: [],
+    images: [],
+    userUploads: [],
     recentUpload: ''
 }
 
@@ -10,11 +11,11 @@ const itemReducer = (state = initialState, action) => {
             let counter = 1
             //Pick two random images
             while(counter <= 2){
-                newImg = action.items.splice(Math.floor(Math.random() * action.items.length), 1)
+                newImg = action.items.images.splice(Math.floor(Math.random() * action.items.images.length), 1)
                 items = items.concat(newImg)
                 counter++;
             }
-            return { ...state, items}
+            return { ...state, images: items, userUploads: action.items.uploads}
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload:action.recentUpload}
         default:
