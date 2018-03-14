@@ -8,6 +8,9 @@ import SessionContainer from '../../containers/session/sessionContainer';
 import SignupContainer from '../../containers/session/signupContainer';
 import recentUpload from "../../components/recentUpload/recentUpload.js";
 import userImages from "../../components/userImages/userImages.js";
+import createContest from "../../components/createContest/createContest.js";
+import singleImage from "../../components/singleImage/singleImage.js";
+
 
 import { RouterRedux } from '../../containers/routes/routesContainer';
 import { configureStore } from '../../store/store';
@@ -24,8 +27,10 @@ export class Routes extends React.Component {
             <Scene key="signup" component={SignupContainer} title="Signup"/>
             <Scene key="home" component={HomeContainer} title="Home"/>
             <Scene key="userImages" component={userImages} title="Your Images"/>
-            
             <Scene key="recentUpload" component={recentUpload} title="Recent Upload"/>
+            <Scene key="createContest" component={createContest} title="Create Contest"/>
+            <Scene key="singleImage" component={singleImage} title="Single Image"/>
+
 
 
           </Scene>

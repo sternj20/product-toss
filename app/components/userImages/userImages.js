@@ -4,8 +4,8 @@ import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
-
-class userImages extends React.Component {
+import { getSingleImage } from "../../actions/items/items"
+class userImages extends Component {
 	render(){
 		return(
 			<View>
@@ -16,11 +16,15 @@ class userImages extends React.Component {
     			{this.props.userUploads.map((item, index) => {
     				return (
               <Col key={item._id} sm={4} md={4} lg={3}>
-    					<Text>{item._id}</Text>
-    					<Image 
-    					source={{uri:item.url}} 
-    					key={item._id} 
-    					style={styles.image}/>
+      					<Image 
+      					source={{uri:item.url}} 
+      					key={item._id} 
+                        onPress={this.test}
+      					style={styles.image}/>
+                        <TouchableOpacity>
+                        <Button onPress={() => this.props.getSingleImage(item._id)}  title="show"/>
+                        </TouchableOpacity>
+
     					</Col>
     				)
     			})}
@@ -36,7 +40,9 @@ const mapStateToProps = state => ({
 	userUploads: state.itemReducer.userUploads
 })
 
-const mapDispatchToProps = (dispatch, props) => ({
-})
+const mapDispatchToProps = {
+    getSingleImage
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(userImages)
