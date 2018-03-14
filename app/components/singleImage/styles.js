@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   image: {
-    width: 100,
-    height: 100,
+    width: 400,
+    height: 400,
   },
   button: {
     backgroundColor: '#88cc88',
