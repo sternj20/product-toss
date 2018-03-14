@@ -26,19 +26,19 @@ export function itemsFetchData(url) {
     };
 }
 
-export function showSingleItem(item){
+export function showSingleImage(item){
     return {
         type: 'SHOW_SINGLE_ITEM',
-        singleItem: item
+        singleImage: item
     };   
 }   
-export function getSingleItem(id){
+export function getSingleImage(id){
     console.log('hi')
     return (dispatch) => {
         let url = `https://product-toss-backend.herokuapp.com/api/imgs/${id}`
         fetch(url).then((response) => response.json())
         .then((responseJson) => {
-          dispatch(showSingleItem(responseJson))
+          dispatch(showSingleImage(responseJson[0]))
           Actions.reset('singleImage')
         })
     .catch((error) => {

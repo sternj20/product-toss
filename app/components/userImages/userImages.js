@@ -4,7 +4,7 @@ import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
-import { getSingleItem } from "../../actions/items/items"
+import { getSingleImage } from "../../actions/items/items"
 class userImages extends Component {
 	render(){
 		return(
@@ -22,7 +22,7 @@ class userImages extends Component {
                         onPress={this.test}
       					style={styles.image}/>
                         <TouchableOpacity>
-                        <Button onPress={() => this.props.getSingleItem(item._id)}  title="show"/>
+                        <Button onPress={() => this.props.getSingleImage(item._id)}  title="show"/>
                         </TouchableOpacity>
 
     					</Col>
@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    getSingleItem
+    getSingleImage
 }
 
 
