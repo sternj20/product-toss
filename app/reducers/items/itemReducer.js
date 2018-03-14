@@ -1,6 +1,7 @@
 const initialState = {
     images: [],
     userUploads: [],
+    singleItem: '',
     recentUpload: ''
 }
 
@@ -17,7 +18,9 @@ const itemReducer = (state = initialState, action) => {
             }
             return { ...state, images: items, userUploads: action.items.uploads}
         case 'ITEM_UPLOAD':
-            return { ...state, recentUpload:action.recentUpload}
+            return { ...state, recentUpload: action.recentUpload}
+        case 'SHOW_SINGLE_ITEM':
+            return { ...state, singleItem: action.singleItem}
         default:
             return state;
     }

@@ -36,6 +36,9 @@ export class Home extends React.Component {
     Actions.reset('userImages')
   }
 
+  createContest(){
+    Actions.reset('createContest')
+  }
 
   render() {
     const { loading } = this.props;
@@ -48,6 +51,7 @@ export class Home extends React.Component {
               <Text style={styles.title}>Welcome {this.props.user.email}</Text>
               <Button onPress={this.logout.bind(this)} title="Logout"></Button>
               <Button onPress={this.showImages} title="Your Images"/>
+              <Button onPress={this.createContest} title="Create Contest"/>
               <Button onPress={this.choosePhoto.bind(this)} title="Upload Photo"/>
             <VotingGallery/></View>}
       </View>

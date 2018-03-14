@@ -26,7 +26,26 @@ export function itemsFetchData(url) {
     };
 }
 
-
+export function showSingleItem(item){
+    return {
+        type: 'SHOW_SINGLE_ITEM',
+        singleItem: item
+    };   
+}   
+export function getSingleItem(id){
+    console.log('hi')
+    return (dispatch) => {
+        let url = `https://product-toss-backend.herokuapp.com/api/imgs/${id}`
+        fetch(url).then((response) => response.json())
+        .then((responseJson) => {
+          dispatch(showSingleItem(responseJson))
+          Actions.reset('singleImage')
+        })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+}
 export function upload(uri, uid){
     return (dispatch) => {
         console.log(uri)
