@@ -10,7 +10,11 @@ export function itemsFetchDataSuccess(items) {
     };
 }
 
-
+export function hideModal(){
+    return{
+        type: 'HIDE_MODAL'
+    }
+}
 export function itemsFetchData(url) {
     return (dispatch) => {
         fetch(url)
@@ -77,3 +81,4 @@ export function upload(uri, uid){
         })
     }
 }
+

@@ -1,8 +1,11 @@
 const initialState = {
     images: [],
     userUploads: [],
+    contests: [],
     singleImage: '',
-    recentUpload: ''
+    recentUpload: '',
+    modalVisible: false,
+    imageToSubmit: {}
 }
 
 const itemReducer = (state = initialState, action) => {
@@ -16,11 +19,15 @@ const itemReducer = (state = initialState, action) => {
                 items = items.concat(newImg)
                 counter++;
             }
-            return { ...state, images: items, userUploads: action.items.uploads}
+            return { ...state, images: items, userUploads: action.items.uploads, contests: action.items.contests}
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
+        case 'SEE_CONTESTS':
+            return {...state, imageToSubmit: action.submission, modalVisible: true}
+        case 'HIDE_MODAL':
+            return {...state, modalVisible: false}
         default:
             return state;
     }
