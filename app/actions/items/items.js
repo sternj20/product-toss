@@ -4,6 +4,7 @@ import { sessionLoading, loadingSuccess } from '../session/actions'
 
 
 export function itemsFetchDataSuccess(items) {
+    console.log(items.contests)
     return {
         type: 'ITEMS_FETCH_DATA_SUCCESS',
         items

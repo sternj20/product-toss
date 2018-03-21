@@ -14,10 +14,17 @@ let api = 'https://product-toss-backend.herokuapp.com/api/imgs/' + uID
   }
 }
 
-export const seeContests = (img) => {
+export const selectContest = (img) => {
     return {
-        type: 'SEE_CONTESTS',
+        type: 'SELECT_CONTEST',
         submission: img
+    }
+}
+
+export const chooseContestToSee = (index) =>{
+    return {
+        type: 'SEE_CONTEST',
+        index
     }
 }
 

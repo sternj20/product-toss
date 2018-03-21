@@ -5,7 +5,7 @@ import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 import { getSingleImage, hideModal } from "../../actions/items/items"
-import { submitImageToContest, seeContests} from "../../actions/vote/vote"
+import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 
 
 class userImages extends Component {
@@ -33,13 +33,7 @@ class userImages extends Component {
                             </TouchableHighlight>
                         </View>
                     </View>
-                </Modal>
-                <TouchableHighlight
-                    onPress={() => {
-                    this.setModalVisible(true);
-                }}>
-                    <Text>Show Modal</Text>
-                </TouchableHighlight>       
+                </Modal>      
                 <Row size={12}>
                 {this.props.userUploads.map((item, index) => {
                     return (
@@ -51,7 +45,7 @@ class userImages extends Component {
                             style={styles.image}/>
                             <TouchableOpacity>
                                 <Button onPress={() => this.props.getSingleImage(item._id)}  title="show"/>
-                                <Button onPress={() => this.props.seeContests(item)}  title="submit"/>
+                                <Button onPress={() => this.props.selectContest(item)}  title="submit"/>
                             </TouchableOpacity>
                         </Col>
                       )
@@ -75,7 +69,7 @@ const mapDispatchToProps = {
     getSingleImage,
     submitImageToContest,
     hideModal,
-    seeContests
+    selectContest
 }
 
 
