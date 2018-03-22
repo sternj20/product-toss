@@ -1,8 +1,12 @@
 const initialState = {
     images: [],
     userUploads: [],
+    contestToSee: [],
+    contests: [],
     singleImage: '',
-    recentUpload: ''
+    recentUpload: '',
+    modalVisible: false,
+    imageToSubmit: {}
 }
 
 const itemReducer = (state = initialState, action) => {
@@ -15,12 +19,18 @@ const itemReducer = (state = initialState, action) => {
                 newImg = action.items.images.splice(Math.floor(Math.random() * action.items.images.length), 1)
                 items = items.concat(newImg)
                 counter++;
-            }
-            return { ...state, images: items, userUploads: action.items.uploads}
+            }[]
+            return { ...state, images: items, userUploads: action.items.uploads, contests: action.items.contests, contestToSee: action.items.contests[0].submissions}
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
+        case 'SELECT_CONTEST':
+            return {...state, imageToSubmit: action.submission, modalVisible: true}
+        case 'SEE_CONTEST':
+            return {...state, contestToSee: state.contests[action.index].submissions}
+        case 'HIDE_MODAL':
+            return {...state, modalVisible: false}
         default:
             return state;
     }
