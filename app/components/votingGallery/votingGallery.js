@@ -21,9 +21,6 @@ class VotingGallery extends React.Component {
 		            source={{uri:item.url}} 
 		            key={item._id}    
 		            style={styles.image}/>
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.chooseContestToSee(index)}>
-                        <Text style={styles.button}>{item.name}</Text>
-                    </TouchableOpacity>
 		            </View>
 		            )
 		        })}

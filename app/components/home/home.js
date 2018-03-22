@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Image, Text } from 'react-native';
+import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
@@ -8,6 +8,8 @@ import  VotingGallery  from '../votingGallery/votingGallery';
 import { ImagePicker, FileSystem } from 'expo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+
 
 
 
@@ -48,23 +50,29 @@ export class Home extends React.Component {
     const { loading } = this.props;
 
     return (
-        <View >
+        <View style={{flex:1, flexDirection: 'column'}}>
             {loading ? <LoadingIndicator color="#ffffff" size="large"/> : 
             <View >
-                <Text style={styles.title}>Welcome {this.props.user.email}</Text>
-                <Button onPress={this.logout.bind(this)} title="Logout"></Button>
-                <Button onPress={this.showImages} title="Your Images"/>
-                <Button onPress={this.createContest} title="Create Contest"/>
-                <Button onPress={this.choosePhoto.bind(this)} title="Upload Photo"/>
-                <VotingGallery/>
-                <View style={{ height: 54, backgroundColor: 'white', flexDirection: 'row'}}>
-                  <Ionicons name="ios-home" size={34} color="black" style={{ marginTop: 12, marginLeft: 15 }} />
-                  <Ionicons name="ios-search" size={34} color="black" style={{ marginTop: 12, marginLeft: 20 }} />
-                  <FontAwesome name="diamond" size={34} color="blue" style={{ marginTop: 12, marginLeft: 20 }} />
-                  <Ionicons onPress={this.choosePhoto.bind(this)} name="ios-camera" size={34} color="black" style={{ marginTop: 12, marginLeft: 20 }} />
-                  <Ionicons name="ios-chatbubbles" size={34} color="black" style={{ marginTop: 12, marginLeft: 20 }} />
+                <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity onPress={this.showImages} style={{flexDirection:'row'}}>
+                        <MaterialIcons name="face" size={50}/>
+                        <Text style={styles.title}>{this.props.user.email ? this.props.user.email.split('@')[0] : ''}</Text>
+                    </TouchableOpacity>
+                    <Button style={styles.smallButton} onPress={this.logout.bind(this)} title="Logout"></Button>
+                    <Button style={styles.smallButton} onPress={this.createContest} title="Create Contest"/>
                 </View>
-            </View>}
+                <View>
+                    <VotingGallery/>
+                </View>
+                <View style={{ height: 54, backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <Ionicons name="ios-home" size={50} color="black" style={{ marginTop: 12, marginRight:10 }} />
+                    <Ionicons name="ios-search" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
+                    <FontAwesome name="diamond" size={50} color="blue" style={{ marginTop: 12, marginLeft: 35 }} />
+                    <Ionicons onPress={this.choosePhoto.bind(this)} name="ios-camera" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
+                    <Ionicons name="ios-chatbubbles" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
+                </View>
+            </View>
+            }
         </View>
       );
   }
