@@ -3,7 +3,7 @@ import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import  VotingBar  from '../votingBar/votingBar';
 import { itemsFetchData } from '../../actions/items/items'
 import { chooseContestToSee } from '../../actions/vote/vote'
-
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { styles } from './styles';
 
@@ -13,6 +13,9 @@ class VotingGallery extends React.Component {
 	render(){
 		return(
 			<View>
+                <TouchableOpacity style={styles.button} onPress={Actions.home}>
+                    <Text style={styles.button}>Back</Text>
+                </TouchableOpacity>
 		        {this.props.contests.map((item, index) => {
 
 		          return (
@@ -21,9 +24,6 @@ class VotingGallery extends React.Component {
 		            source={{uri:item.url}} 
 		            key={item._id}    
 		            style={styles.image}/>
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.chooseContestToSee(index)}>
-                        <Text style={styles.button}>{item.name}</Text>
-                    </TouchableOpacity>
 		            </View>
 		            )
 		        })}

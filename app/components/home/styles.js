@@ -21,5 +21,9 @@ export const styles = StyleSheet.create({
   },
   votingBar: {
     top: '-50%'
-  }
+  },
+  smallButton: {
+    width:50,
+    height:5,
+    flexDirection: 'row'  }
 });
