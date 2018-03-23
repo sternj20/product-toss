@@ -20,7 +20,13 @@ const itemReducer = (state = initialState, action) => {
                 items = items.concat(newImg)
                 counter++;
             }[]
-            return { ...state, images: items, userUploads: action.items.uploads, contests: action.items.contests, contestToSee: action.items.contests[0].submissions}
+            return { ...state,
+                images: items,
+                userUploads: action.items.uploads,
+                archivedContests: action.items.archivedContests,
+                activeContest: action.items.activeContest,
+                contestToSee: action.items.archivedContests[0]
+            }
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SHOW_SINGLE_ITEM':
