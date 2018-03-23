@@ -10,7 +10,8 @@ import recentUpload from "../../components/recentUpload/recentUpload.js";
 import userImages from "../../components/userImages/userImages.js";
 import createContest from "../../components/createContest/createContest.js";
 import singleImage from "../../components/singleImage/singleImage.js";
-import votingGallery from "../../components/votingGallery/votingGallery.js";
+import preVsWorld from "../../components/preVsWorld/preVsWorld.js";
+import vsWorld from "../../components/vsWorld/vsWorld.js";
 
 
 import { RouterRedux } from '../../containers/routes/routesContainer';
@@ -32,7 +33,9 @@ export class Routes extends React.Component {
             <Scene key="recentUpload" component={recentUpload} title="Recent Upload"/>
             <Scene key="createContest" component={createContest} title="Create Contest"/>
             <Scene key="singleImage" component={singleImage} title="Single Image"/>
-            <Scene key="votingGallery" component={votingGallery} title="VS World Zone"/>
+            <Scene key="preVsWorld" component={preVsWorld} title="Pre VS World Zone"/>
+            <Scene key="vsWorld" component={vsWorld} title="VS World Zone"/>
+
             
 
 

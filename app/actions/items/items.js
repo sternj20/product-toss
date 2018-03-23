@@ -4,7 +4,6 @@ import { sessionLoading, loadingSuccess } from '../session/actions'
 
 
 export function itemsFetchDataSuccess(items) {
-    console.log(items.contests)
     return {
         type: 'ITEMS_FETCH_DATA_SUCCESS',
         items
@@ -38,7 +37,6 @@ export function showSingleImage(item){
     };   
 }   
 export function getSingleImage(id){
-    console.log('hi')
     return (dispatch) => {
         let url = `https://product-toss-backend.herokuapp.com/api/imgs/${id}`
         fetch(url).then((response) => response.json())
@@ -53,7 +51,6 @@ export function getSingleImage(id){
 }
 export function upload(uri, uid){
     return (dispatch) => {
-        console.log(uri)
         let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`;
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
@@ -83,3 +80,22 @@ export function upload(uri, uid){
     }
 }
 
+export function deleteImage(uid, fileName, imgId ){
+    console.log(uid)
+    console.log(fileName)
+    console.log(imgId)
+    let deleteUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`
+    let deleteData = {
+            fileName,
+            imgId
+    }
+    let deleteOptions = {
+      method: 'PUT',
+      body: JSON.stringify(deleteData),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+        },
+    };
+    return fetch(deleteUrl, deleteOptions)
+}

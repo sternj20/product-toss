@@ -4,7 +4,7 @@ import { View, Button, Image, Text, TouchableOpacity, Modal, TouchableHighlight 
 import { styles } from './styles';
 import { Actions } from 'react-native-router-flux';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
-import { getSingleImage, hideModal } from "../../actions/items/items"
+import { getSingleImage, hideModal, deleteImage } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 
 
@@ -25,11 +25,7 @@ class userImages extends Component {
                 }}>
                     <View style={styles.container}>
                         <View>
-                            {this.props.contests.map((item, index) => {
-                                return(
-                                <Button key={index} title={item.name} onPress={() => this.props.submitImageToContest(item._id, this.props.imageToSubmit)}></Button>
-                                )
-                            })}
+                            <Button title={this.props.contest[0].name} onPress={() => this.props.submitImageToContest(this.props.contest[0]._id, this.props.imageToSubmit)}></Button>
                             <TouchableHighlight
                             onPress={this.props.hideModal}>
                                 <Text>Hide Modal</Text>
@@ -49,6 +45,8 @@ class userImages extends Component {
                             <TouchableOpacity>
                                 <Button onPress={() => this.props.getSingleImage(item._id)}  title="show"/>
                                 <Button onPress={() => this.props.selectContest(item)}  title="submit"/>
+                                <Button onPress={() => deleteImage(this.props.user.uid, item.url, item._id)}  title="delete"/>
+
                             </TouchableOpacity>
                         </Col>
                       )
@@ -63,7 +61,7 @@ class userImages extends Component {
 const mapStateToProps = state => ({
 	user: state.sessionReducer.user,
 	userUploads: state.itemReducer.userUploads,
-    contests: state.itemReducer.contests,
+    contest: state.itemReducer.activeContest,
     imageToSubmit: state.itemReducer.imageToSubmit,
     modalVisible: state.itemReducer.modalVisible
 })
