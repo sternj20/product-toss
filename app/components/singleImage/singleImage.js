@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 
 class singleImage extends Component {
     render(){

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Button, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import  VotingBar  from '../votingBar/votingBar';
 import { chooseContestToSee } from '../../actions/vote/vote'
-import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { styles } from './styles';
 

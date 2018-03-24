@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 import { getSingleImage, hideModal, deleteImage } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"

@@ -25,7 +25,7 @@ const itemReducer = (state = initialState, action) => {
                 userUploads: action.items.uploads,
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest,
-                contestToSee: action.items.archivedContests[0]
+                contestToSee: action.items.archivedContests[0].submissions
             }
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}

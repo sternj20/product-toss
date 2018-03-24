@@ -4,7 +4,6 @@ import { BasicFormComponent } from '../BasicForm/basicForm';
 import { LoadingIndicator } from '../../loadingIndicator/loadingIndicator';
 import { styles } from '../BasicForm/styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Actions } from 'react-native-router-flux';
 
 export class LoginFormComponent extends Component {
 
@@ -12,16 +11,9 @@ export class LoginFormComponent extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.restore();
-  }
-
   componentDidUpdate(prevProps) {
     if (!prevProps.error && this.props.error) {
       Alert.alert('error', this.props.error);
-    }
-    if(this.props.logged) {
-      Actions.reset('home');
     }
   }
 
@@ -42,7 +34,7 @@ export class LoginFormComponent extends Component {
         {loading ? null :
 
         <View>
-        <TouchableOpacity style={styles.button} onPress={Actions.signup}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('signup')}>
           <Text style={styles.buttonTitle}>signup</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={loginDemoUser}>

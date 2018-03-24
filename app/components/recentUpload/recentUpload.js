@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { connect } from 'react-redux';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 
 class recentUpload extends Component{
 	render(){
