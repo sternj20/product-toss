@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Image, Text, TouchableOpacity, Picker } from 'react-native';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
 import  VotingBar  from '../votingBar/votingBar';
 import  preVsWorld  from '../preVsWorld/preVsWorld';

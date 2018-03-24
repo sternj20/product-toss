@@ -11,12 +11,6 @@ class vsWorld extends React.Component {
     render(){
         return(
             <ScrollView>
-                <TouchableOpacity style={styles.button} onPress={Actions.home}>
-                    <Text style={styles.button}>Back</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={Actions.votingGallery}>
-                    <Text style={styles.button}>Submission Gallery</Text>
-                </TouchableOpacity>
                 <Text style={styles.header}>This week's theme is {this.props.images[0].name}</Text>
                 {this.props.images[0].submissions.map((submission,index) => {
                     return(

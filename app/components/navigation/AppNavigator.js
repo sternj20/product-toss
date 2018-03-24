@@ -7,11 +7,14 @@ import SessionContainer from '../../containers/session/sessionContainer';
 import SignupContainer from '../../containers/session/signupContainer';
 import { restoreSession } from '../../actions/session/actions';
 import preVsWorld from "../preVsWorld/preVsWorld"
+import vsWorld from "../vsWorld/vsWorld"
+
 import { addListener } from '../../utils/redux';
 
 export const AppNavigator = StackNavigator({
     Main: { screen: SessionContainer},
     preVsWorld: { screen: preVsWorld },
+    vsWorld: { screen: vsWorld },
     signup: { screen: SignupContainer}
 });
 

@@ -14,10 +14,7 @@ class preVsWorld extends React.Component {
 	render(){
 		return(
 			<ScrollView>
-                <TouchableOpacity style={styles.button} onPress={Actions.home}>
-                    <Text style={styles.button}>Back</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={Actions.vsWorld}>
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('vsWorld')}>
                     <Text style={styles.button}>Submission Gallery</Text>
                 </TouchableOpacity>
                 <Text style={styles.header}>Winner's from last weeks theme: {this.props.contestToSee.name}</Text>
