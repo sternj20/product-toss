@@ -4,14 +4,12 @@ import { BasicFormComponent } from '../BasicForm/basicForm';
 import { LoadingIndicator } from '../../loadingIndicator/loadingIndicator';
 import { styles } from '../BasicForm/styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Actions } from 'react-native-router-flux';
 
 export class SignupFormComponent extends Component {
 
   constructor(props) {
     super(props);
   }
-
   componentDidUpdate(prevProps) {
     if(this.props.registered) {
       Actions.reset('home');

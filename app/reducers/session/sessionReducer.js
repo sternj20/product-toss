@@ -5,11 +5,12 @@ const initialState = {
   loading: false,
   user: {},
   error: null,
-  logged: null,
+  logged: false,
   registered: null
 };
 
 const sessionReducer = (state = initialState, action) => {
+    console.log(action.type)
   switch(action.type) {
     case types.SESSION_RESTORING:
       return { ...state, restoring: true }

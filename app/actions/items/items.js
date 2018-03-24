@@ -1,4 +1,3 @@
-import { Actions } from 'react-native-router-flux';
 import { sessionLoading, loadingSuccess } from '../session/actions'
 
 

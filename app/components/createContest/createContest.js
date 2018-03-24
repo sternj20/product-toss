@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Button, Image, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 import { submitContest } from '../../actions/admin/admin';
 
 class createContest extends React.Component {

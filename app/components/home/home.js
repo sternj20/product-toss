@@ -14,9 +14,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 export class Home extends React.Component {
-  componentDidMount() {
-    this.props.fetchData(`https://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
-  }
+  // componentDidMount() {
+  //   this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
+  // }
 
   constructor(props) {
     super(props);
@@ -69,7 +69,7 @@ export class Home extends React.Component {
                 <View style={{height: 54, backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     <Ionicons name="ios-home" size={50} color="black" style={{ marginTop: 12, marginRight:10 }} />
                     <Ionicons name="ios-search" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
-                    <FontAwesome onPress={() => Actions.reset('preVsWorld')} name="diamond" size={50} color="blue" style={{ marginTop: 12, marginLeft: 35 }} />
+                    <FontAwesome onPress={() => this.props.navigation.navigate('preVsWorld')} name="diamond" size={50} color="blue" style={{ marginTop: 12, marginLeft: 35 }} />
                     <Ionicons onPress={this.choosePhoto.bind(this)} name="ios-camera" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
                     <Ionicons name="ios-chatbubbles" size={50} color="black" style={{ marginTop: 12, marginLeft: 35 }} />
                 </View>
