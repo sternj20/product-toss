@@ -18,7 +18,7 @@ class preVsWorld extends React.Component {
                     <Text style={styles.button}>Submission Gallery</Text>
                 </TouchableOpacity>
                 <Text style={styles.header}>Winner's from last weeks theme: {this.props.contestToSee.name}</Text>
-                {this.props.contestToSee.map((submission,index) => {
+                {this.props.contestToSee.submissions.map((submission,index) => {
                     return(
                     <View key={`${index}Container`} style={styles.container}>
                     <Image 

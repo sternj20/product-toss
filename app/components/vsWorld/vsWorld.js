@@ -11,7 +11,7 @@ class vsWorld extends React.Component {
     render(){
         return(
             <ScrollView>
-                <Text style={styles.header}>This week's theme is {this.props.activeContest[0].name}</Text>
+                <Text style={styles.header}>This week's theme is {this.props.activeContest.name}</Text>
                 {this.props.images.map((submission,index) => {
                     return(
                     <View key={`${index}Container`} style={styles.container}>
@@ -23,7 +23,9 @@ class vsWorld extends React.Component {
                     </View>
                     )
                 })}
-                <VotingBar/>
+                <View style={styles.votingBar}>
+                    <VotingBar/>
+                </View>
             </ScrollView>
         )                                                                                                                                                                                 
     }

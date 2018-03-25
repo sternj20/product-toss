@@ -21,7 +21,7 @@ class userImages extends Component {
                 }}>
                     <View style={styles.container}>
                         <View>
-                            <Button title={this.props.contest[0].name} onPress={() => this.props.submitImageToContest(this.props.contest[0]._id, this.props.imageToSubmit)}></Button>
+                            <Button title={this.props.contest.name} onPress={() => this.props.submitImageToContest(this.props.contest._id, this.props.imageToSubmit)}></Button>
                             <TouchableHighlight
                             onPress={this.props.hideModal}>
                                 <Text>Hide Modal</Text>

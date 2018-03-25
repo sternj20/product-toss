@@ -7,6 +7,7 @@ class VotingBar extends Component{
     render(){
       return(
         <View style={styles.container}>
+
             {this.props.items.map((item, index) => {
                 return(
                     <View key={`${index}container`}>
@@ -33,7 +34,7 @@ const voteIcon = (index, length) => {
     return 'arrow-down'
 }
 const mapStateToProps = state => ({
-  items: state.itemReducer.images,
+  items: state.itemReducer.contestImages,
   user: state.sessionReducer.user
 })
 
