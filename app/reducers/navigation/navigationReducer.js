@@ -17,7 +17,7 @@ function nav(state = initialNavState, action) {
   switch (action.type) {
     case 'SESSION_SUCCESS':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'preVsWorld' }),
+        NavigationActions.navigate({ routeName: 'Home' }),
         state
       );
       break;

@@ -7,10 +7,10 @@ import { itemsFetchData} from '../../actions/items/items';
 
 
 class preVsWorld extends React.Component {
-    componentDidMount(){
-    this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
+    // componentDidMount(){
+    // this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
 
-    }
+    // }
 	render(){
 		return(
 			<ScrollView>
