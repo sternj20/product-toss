@@ -11,8 +11,8 @@ class vsWorld extends React.Component {
     render(){
         return(
             <ScrollView>
-                <Text style={styles.header}>This week's theme is {this.props.images[0].name}</Text>
-                {this.props.images[0].submissions.map((submission,index) => {
+                <Text style={styles.header}>This week's theme is {this.props.activeContest[0].name}</Text>
+                {this.props.images.map((submission,index) => {
                     return(
                     <View key={`${index}Container`} style={styles.container}>
                     <Image 
@@ -30,7 +30,8 @@ class vsWorld extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    images: state.itemReducer.activeContest
+    activeContest: state.itemReducer.activeContest,
+    images: state.itemReducer.contestImages
 })  
 
 const mapDispatchToProps =  {
