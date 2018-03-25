@@ -11,10 +11,12 @@ export class LoginFormComponent extends Component {
     super(props);
   }
 
+
   componentDidUpdate(prevProps) {
     if (!prevProps.error && this.props.error) {
       Alert.alert('error', this.props.error);
     }
+
   }
 
   render() {

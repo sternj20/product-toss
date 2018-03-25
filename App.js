@@ -12,7 +12,7 @@ const store = createStore(
   applyMiddleware(...middleware),
 );
 
-// // Susbcription
+// Susbcription
 // store.subscribe(() => {
 //   console.log('[Susbcription]', store.getState());
 // });

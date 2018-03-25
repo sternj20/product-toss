@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Image, Text, TouchableOpacity, Picker } from 'react-native';
 import { styles } from './styles';
-import { Actions } from 'react-native-router-flux';
 import { LoadingIndicator } from '../loadingIndicator/loadingIndicator';
 import  VotingBar  from '../votingBar/votingBar';
 import  preVsWorld  from '../preVsWorld/preVsWorld';
@@ -14,9 +13,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 export class Home extends React.Component {
-  // componentDidMount() {
-  //   this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
-  // }
+  componentDidMount() {
+    console.log('hi')
+    this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
+  }
 
   constructor(props) {
     super(props);
@@ -34,17 +34,16 @@ export class Home extends React.Component {
   logout() {
     this.props.logout();
     setTimeout(() => {
-      Actions.reset('login');
+     this.props.navigation.navigate('Main')
     }, 100);
   }
 
-  showImages(){
-    Actions.reset('userImages')
-  }
+
 
   createContest(){
     Actions.reset('createContest')
   }
+
 
   render() {
     const { loading } = this.props;
@@ -54,7 +53,7 @@ export class Home extends React.Component {
             {loading ? <LoadingIndicator color="#ffffff" size="large"/> : 
             <View >
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity onPress={this.showImages} style={{flexDirection:'row'}}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('userImages')} style={{flexDirection:'row'}}>
                         <MaterialIcons name="face" size={50}/>
                         <Text style={styles.title}>{this.props.user.email ? this.props.user.email.split('@')[0] : ''}</Text>
                     </TouchableOpacity>

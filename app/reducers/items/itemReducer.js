@@ -14,14 +14,15 @@ const itemReducer = (state = initialState, action) => {
         case 'ITEMS_FETCH_DATA_SUCCESS':
             let items = []
             let counter = 1
+            let activeContest = action.items.activeContest[0].submissions;
             //Pick two random images
             while(counter <= 2){
-                newImg = action.items.images.splice(Math.floor(Math.random() * action.items.images.length), 1)
+                newImg = activeContest.splice(Math.floor(Math.random() * activeContest.length), 1)
                 items = items.concat(newImg)
                 counter++;
             }[]
             return { ...state,
-                images: items,
+                contestImages: items,
                 userUploads: action.items.uploads,
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest,
