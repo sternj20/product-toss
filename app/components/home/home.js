@@ -29,7 +29,7 @@ export class Home extends React.Component {
       quality: 0.7,
       base64: true
     })
-    this.props.upload(pickerResult.uri, this.props.user.uid)
+    this.props.upload(pickerResult.uri, this.props.user.uid, this.props.user.email)
   }
   logout() {
     this.props.logout();

@@ -58,6 +58,7 @@ const mapStateToProps = state => ({
 	userUploads: state.itemReducer.userUploads,
     contest: state.itemReducer.activeContest,
     imageToSubmit: state.itemReducer.imageToSubmit,
+    singleImage: state.itemReducer.singleImage,
     modalVisible: state.itemReducer.modalVisible
 })
 

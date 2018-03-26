@@ -14,4 +14,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'center',
   },
+  user:{
+    flexDirection: 'row'
+  },
+  userHeader:{
+    fontSize:30
+  }
 });

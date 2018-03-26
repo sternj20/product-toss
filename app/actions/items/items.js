@@ -29,6 +29,14 @@ export function itemsFetchData(url) {
     };
 }
 
+export function seeFriendsData( props, uID){
+    return(dispatch) => {
+    dispatch(itemsFetchData(`https://product-toss-backend.herokuapp.com/api/user/${uID}`))
+        
+    props.navigation.navigate('userImages')
+    }
+}
+
 export function showSingleImage(item, props){
     return (dispatch) => {
         props.navigation.navigate('singleImage')
@@ -37,9 +45,9 @@ export function showSingleImage(item, props){
 }
 
 
-export function upload(uri, uid){
+export function upload(uri, uid,email){
     return (dispatch) => {
-        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`;
+        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}/${email}`;
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
 
