@@ -29,25 +29,14 @@ export function itemsFetchData(url) {
     };
 }
 
-export function showSingleImage(item){
-    return {
-        type: 'SHOW_SINGLE_ITEM',
-        singleImage: item
-    };   
-}   
-export function getSingleImage(id){
+export function showSingleImage(item, props){
     return (dispatch) => {
-        let url = `https://product-toss-backend.herokuapp.com/api/imgs/${id}`
-        fetch(url).then((response) => response.json())
-        .then((responseJson) => {
-          dispatch(showSingleImage(responseJson[0]))
-          Actions.reset('singleImage')
-        })
-    .catch((error) => {
-      console.error(error);
-    });
+        props.navigation.navigate('singleImage')
+        dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
+    }
 }
-}
+
+
 export function upload(uri, uid){
     return (dispatch) => {
         let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`;
@@ -74,7 +63,6 @@ export function upload(uri, uid){
             let location = data.location
             dispatch(loadingSuccess())
             dispatch({ type: 'ITEM_UPLOAD', recentUpload: location})
-            Actions.reset('recentUpload')
         })
     }
 }

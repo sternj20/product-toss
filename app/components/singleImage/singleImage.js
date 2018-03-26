@@ -7,9 +7,6 @@ class singleImage extends Component {
     render(){
         return(
             <View>
-                <TouchableOpacity style={styles.button} onPress={Actions.userImages}>
-                <Text style={styles.button}>Back to your images</Text>
-                </TouchableOpacity>
                 <Image 
                 source={{uri:this.props.singleImage.url}} 
                 style={styles.image}/>

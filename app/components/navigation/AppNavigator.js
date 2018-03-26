@@ -9,6 +9,8 @@ import { restoreSession } from '../../actions/session/actions';
 import userImages from "../userImages/userImages"
 import preVsWorld from "../preVsWorld/preVsWorld"
 import vsWorld from "../vsWorld/vsWorld"
+import singleImage from "../singleImage/singleImage"
+
 
 import { addListener } from '../../utils/redux';
 
@@ -18,7 +20,8 @@ export const AppNavigator = StackNavigator({
     userImages: { screen: userImages}, 
     preVsWorld: { screen: preVsWorld },
     vsWorld: { screen: vsWorld },
-    signup: { screen: SignupContainer}
+    signup: { screen: SignupContainer},
+    singleImage: { screen: singleImage}
 });
 
 class AppWithNavigationState extends React.Component {

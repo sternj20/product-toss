@@ -10,11 +10,7 @@ export class SignupFormComponent extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate(prevProps) {
-    if(this.props.registered) {
-      Actions.reset('home');
-    }
-  }
+  
 
   render() {
     const { signup, loading } = this.props;
