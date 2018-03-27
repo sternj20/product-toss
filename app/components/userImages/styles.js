@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
   },
 
  headerWrapper: {
-    flex: 1
+    flex: 1,
   },
   headerText: {
     fontSize:40,

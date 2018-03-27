@@ -26,7 +26,7 @@ export const AppNavigator = StackNavigator({
 },  {
     navigationOptions: {
       headerStyle: {
-        backgroundColor: '#f4511e',
+        backgroundColor: 'teal',
       },
     },
   }

@@ -22,6 +22,16 @@ export const styles = StyleSheet.create({
   votingBar: {
     top: '-50%'
   },
+  headerWrapper: {
+    flex: 1,
+  },
+  headerText: {
+    fontSize:40,
+    fontWeight:'bold',
+    color: 'white',
+    textAlign: 'center', // ok
+    alignSelf: 'center', // ok
+  },
   smallButton: {
     width:50,
     height:5,

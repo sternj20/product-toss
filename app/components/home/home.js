@@ -13,6 +13,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 export class Home extends React.Component {
+
   componentDidMount() {
     this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
   }
@@ -43,6 +44,18 @@ export class Home extends React.Component {
     Actions.reset('createContest')
   }
 
+    static navigationOptions = {
+        headerStyle: {
+        backgroundColor: 'teal',
+        },
+        headerTitle: () => (
+          <View style={styles.headerWrapper}>
+            <Text
+              adjustsFontSizeToFit
+              style={styles.headerText}>ProducTToss</Text>
+          </View>
+        )
+    }
 
   render() {
     const { loading } = this.props;

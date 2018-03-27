@@ -4,19 +4,21 @@ import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 
 export class userImages extends Component {
-
     static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
-    headerTitle: () => (
-      <View style={styles.headerWrapper}>
-        <Text
-          adjustsFontSizeToFit
-          style={styles.headerText}>{params.user.split('@')[0]}</Text>
-      </View>
-    )
+        headerStyle: {
+        backgroundColor: '#f4511e'
+        },
+        headerTitle: () => (
+          <View style={styles.headerWrapper}>
+            <Text
+              adjustsFontSizeToFit
+              style={styles.headerText}>{params.user.split('@')[0]}</Text>
+          </View>
+        )
+    }
 }
-  }
 
     render(){
         return(
