@@ -8,9 +8,9 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 300,
+    height: 250,
     marginTop:20,
-    marginBottom: 120
+    marginBottom: 80
   },
   primary: {
     color: 'rgb(116, 70, 195)'
@@ -19,6 +19,9 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     color: 'blue'
 
+  },
+  votingBar: {
+    top: '-50%'
   },
 
   button: {

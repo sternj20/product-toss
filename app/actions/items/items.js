@@ -29,28 +29,25 @@ export function itemsFetchData(url) {
     };
 }
 
-export function showSingleImage(item){
-    return {
-        type: 'SHOW_SINGLE_ITEM',
-        singleImage: item
-    };   
-}   
-export function getSingleImage(id){
-    return (dispatch) => {
-        let url = `https://product-toss-backend.herokuapp.com/api/imgs/${id}`
-        fetch(url).then((response) => response.json())
-        .then((responseJson) => {
-          dispatch(showSingleImage(responseJson[0]))
-          Actions.reset('singleImage')
-        })
-    .catch((error) => {
-      console.error(error);
-    });
+export function seeFriendsData( props, uID){
+    return(dispatch) => {
+    dispatch(itemsFetchData(`https://product-toss-backend.herokuapp.com/api/user/${uID}`))
+        
+    props.navigation.navigate('userImages')
+    }
 }
-}
-export function upload(uri, uid){
+
+export function showSingleImage(item, props){
     return (dispatch) => {
-        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`;
+        props.navigation.navigate('singleImage')
+        dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
+    }
+}
+
+
+export function upload(uri, uid,email){
+    return (dispatch) => {
+        let apiUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}/${email}`;
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
 
@@ -74,7 +71,6 @@ export function upload(uri, uid){
             let location = data.location
             dispatch(loadingSuccess())
             dispatch({ type: 'ITEM_UPLOAD', recentUpload: location})
-            Actions.reset('recentUpload')
         })
     }
 }

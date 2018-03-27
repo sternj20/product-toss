@@ -1,3 +1,4 @@
+import {shuffle, getFollowingImages} from "../../utils/helpers.js"
 const initialState = {
     images: [],
     userUploads: [],
@@ -6,15 +7,20 @@ const initialState = {
     singleImage: '',
     recentUpload: '',
     modalVisible: false,
+    followingImages: [],
     imageToSubmit: {}
 }
 
+
 const itemReducer = (state = initialState, action) => {
+
+
     switch (action.type) {
         case 'ITEMS_FETCH_DATA_SUCCESS':
+            let followingImages = getFollowingImages(action.items.following)
             let items = []
             let counter = 1
-            let activeContest = action.items.activeContest[0].submissions;
+            let activeContest = action.items.activeContest.submissions;
             //Pick two random images
             while(counter <= 2){
                 newImg = activeContest.splice(Math.floor(Math.random() * activeContest.length), 1)
@@ -24,10 +30,17 @@ const itemReducer = (state = initialState, action) => {
             return { ...state,
                 contestImages: items,
                 userUploads: action.items.uploads,
+                followingImages: getFollowingImages(action.items.following),
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest,
-                contestToSee: action.items.archivedContests[0].submissions
+                contestToSee: action.items.archivedContests[0]
             }
+        case 'VOTE_SUCCESS':
+        console.log(activeContest)
+            // return {
+            //     ...state,
+            //     contestImages: 
+            // }
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SHOW_SINGLE_ITEM':

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
 import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
-import { getSingleImage, hideModal, deleteImage } from "../../actions/items/items"
+import { showSingleImage, hideModal, deleteImage } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 
 
@@ -21,7 +21,7 @@ class userImages extends Component {
                 }}>
                     <View style={styles.container}>
                         <View>
-                            <Button title={this.props.contest[0].name} onPress={() => this.props.submitImageToContest(this.props.contest[0]._id, this.props.imageToSubmit)}></Button>
+                            <Button title={this.props.contest.name} onPress={() => this.props.submitImageToContest(this.props.contest._id, this.props.imageToSubmit)}></Button>
                             <TouchableHighlight
                             onPress={this.props.hideModal}>
                                 <Text>Hide Modal</Text>
@@ -36,10 +36,9 @@ class userImages extends Component {
                             <Image 
                             source={{uri:item.url}} 
                             key={item._id} 
-                            onPress={this.test}
                             style={styles.image}/>
                             <TouchableOpacity>
-                                <Button onPress={() => this.props.getSingleImage(item._id)}  title="show"/>
+                                <Button onPress={() => this.props.showSingleImage(item, this.props)}  title="show"/>
                                 <Button onPress={() => this.props.selectContest(item)}  title="submit"/>
                                 <Button onPress={() => deleteImage(this.props.user.uid, item.url, item._id)}  title="delete"/>
 
@@ -53,17 +52,18 @@ class userImages extends Component {
     }
 }
 
-
+    
 const mapStateToProps = state => ({
 	user: state.sessionReducer.user,
 	userUploads: state.itemReducer.userUploads,
     contest: state.itemReducer.activeContest,
     imageToSubmit: state.itemReducer.imageToSubmit,
+    singleImage: state.itemReducer.singleImage,
     modalVisible: state.itemReducer.modalVisible
 })
 
 const mapDispatchToProps = {
-    getSingleImage,
+    showSingleImage,
     submitImageToContest,
     hideModal,
     selectContest

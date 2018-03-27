@@ -9,7 +9,7 @@ let api = 'https://product-toss-backend.herokuapp.com/api/imgs/' + uID
 		    if (!response.ok) {
 		        throw Error(response.statusText);
 		    }
-        dispatch(itemsFetchData(api))
+        dispatch(itemsFetchData(`https://product-toss-backend.herokuapp.com/api/user/${uID}`))
 		    })
   }
 }
