@@ -7,6 +7,7 @@ const initialState = {
     singleImage: '',
     recentUpload: '',
     modalVisible: false,
+    followingImages: [],
     imageToSubmit: {}
 }
 
