@@ -14,7 +14,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 export class Home extends React.Component {
   componentDidMount() {
-    console.log('hi')
     this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
   }
 

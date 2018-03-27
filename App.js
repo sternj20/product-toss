@@ -14,7 +14,7 @@ const store = createStore(
 
 // Susbcription
 store.subscribe(() => {
-  console.log('[Susbcription]', store.getState());
+  // console.log('[Susbcription]', store.getState());
 });
 
 class ReduxExampleApp extends React.Component {

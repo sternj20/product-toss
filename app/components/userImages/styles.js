@@ -3,17 +3,17 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    // flexDirection: 'row',
     flexWrap: 'wrap',
     // justifyContent: 'center',
     // alignItems: 'center',
   },
   image: {
     // flex: 1,
-    width: 100,
-    height: 100,
-    marginTop:20,
-    // marginBottom: 200
+    width: 130,
+    height: 120,
+    marginTop:5,
+    marginLeft:10,
   },
   primary: {
     color: 'rgb(116, 70, 195)'
@@ -34,4 +34,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'center',
   },
+  userInfo: {
+    flexDirection: 'column'
+  }
 });
