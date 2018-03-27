@@ -52,7 +52,9 @@ export class Home extends React.Component {
             {loading ? <LoadingIndicator color="#ffffff" size="large"/> : 
             <View >
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('userImages')} style={{flexDirection:'row'}}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('userImages',{
+                        user:this.props.user.email
+                    })} style={{flexDirection:'row'}}>
                         <MaterialIcons name="face" size={50}/>
                         <Text style={styles.title}>{this.props.user.email ? this.props.user.email.split('@')[0] : ''}</Text>
                     </TouchableOpacity>
