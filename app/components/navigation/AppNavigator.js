@@ -6,7 +6,7 @@ import HomeContainer from "../../containers/home/homeContainer"
 import SessionContainer from '../../containers/session/sessionContainer';
 import SignupContainer from '../../containers/session/signupContainer';
 import { restoreSession } from '../../actions/session/actions';
-import userImages from "../userImages/userImages"
+import userImagesContainer from "../../containers/userImages/userImagesContainer"
 import preVsWorld from "../preVsWorld/preVsWorld"
 import vsWorld from "../vsWorld/vsWorld"
 import singleImage from "../singleImage/singleImage"
@@ -18,7 +18,7 @@ import { addListener } from '../../utils/redux';
 export const AppNavigator = StackNavigator({
     Main: { screen: SessionContainer},
     Home: { screen: HomeContainer },
-    userImages: { screen: userImages}, 
+    userImages: { screen: userImagesContainer}, 
     preVsWorld: { screen: preVsWorld },
     vsWorld: { screen: vsWorld },
     signup: { screen: SignupContainer},
