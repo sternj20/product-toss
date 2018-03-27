@@ -1,3 +1,4 @@
+import {shuffle, getFollowingImages} from "../../utils/helpers.js"
 const initialState = {
     images: [],
     userUploads: [],
@@ -9,9 +10,13 @@ const initialState = {
     imageToSubmit: {}
 }
 
+
 const itemReducer = (state = initialState, action) => {
+
+
     switch (action.type) {
         case 'ITEMS_FETCH_DATA_SUCCESS':
+            let followingImages = getFollowingImages(action.items.following)
             let items = []
             let counter = 1
             let activeContest = action.items.activeContest.submissions;
@@ -24,6 +29,7 @@ const itemReducer = (state = initialState, action) => {
             return { ...state,
                 contestImages: items,
                 userUploads: action.items.uploads,
+                followingImages: getFollowingImages(action.items.following),
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest,
                 contestToSee: action.items.archivedContests[0]
