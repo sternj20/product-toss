@@ -7,12 +7,23 @@ import { seeFriendsData, deleteImage } from '../../actions/items/items'
 import {navigateToComponent} from "../../utils/helpers.js"
 
 class singleImage extends Component {
-    componentDidMount(){
-        this.props.navigation.setParams({
-            navigateToComponent,
-            user: this.props.user
-        });
+
+
+    static navigationOptions = ({navigation}) => {
+    const { params } = navigation.state;
+    return{
+        headerTitle: () => (
+          <View style={styles.headerWrapper}>
+            <TouchableOpacity onPress={() => navigateToComponent(navigation, params.user, 'userImages')}>
+            <Text
+              adjustsFontSizeToFit
+              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
+            </TouchableOpacity>
+          </View>
+        )
     }
+}
+
     render(){
         return(
             <View>

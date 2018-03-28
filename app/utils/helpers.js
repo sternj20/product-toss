@@ -34,6 +34,7 @@ export const getFollowingImages = (following) => {
 }
 
  export const  navigateToComponent = (navigation, user, destination) => {
+    console.log(user)
         navigation.navigate(destination,{
             user
         })

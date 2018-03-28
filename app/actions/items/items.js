@@ -37,9 +37,9 @@ export function seeFriendsData( props, uID){
     }
 }
 
-export function showSingleImage(item, props){
+export function showSingleImage(item, props, user){
     return (dispatch) => {
-        props.navigation.navigate('singleImage')
+        props.navigation.navigate('singleImage', {user})
         dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
     }
 }
