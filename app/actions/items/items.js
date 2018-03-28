@@ -81,7 +81,7 @@ export function deleteImage(uid, fileName, imgId ){
     console.log(imgId)
     let deleteUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`
     let deleteData = {
-            fileName,
+            fileName: fileName.split('/')[3],
             imgId
     }
     let deleteOptions = {

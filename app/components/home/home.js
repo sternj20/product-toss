@@ -8,7 +8,7 @@ import { ImagePicker, FileSystem } from 'expo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import {navigateToUserImages} from "../../utils/helpers.js"
+import {navigateToComponent} from "../../utils/helpers.js"
 
 
 
@@ -18,7 +18,7 @@ export class Home extends React.Component {
 
         this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
         this.props.navigation.setParams({
-            navigateToUserImages,
+            navigateToComponent,
             user: this.props.user
         });
     }
@@ -68,7 +68,7 @@ export class Home extends React.Component {
               ),
             headerRight: (
               <View style={styles.headerWrapper}>
-              <TouchableOpacity onPress={() => params.navigateToUserImages(navigation, params.user )} style={{flexDirection:'row'}}>
+              <TouchableOpacity onPress={() => params.navigateToComponent(navigation, params.user, 'userImages' )} style={{flexDirection:'row'}}>
               <MaterialIcons name="face" size={50}/>
               </TouchableOpacity>
               </View>

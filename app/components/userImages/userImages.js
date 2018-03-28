@@ -14,7 +14,7 @@ export class userImages extends Component {
           <View style={styles.headerWrapper}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}>{params.user.split('@')[0]}</Text>
+              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
           </View>
         )
     }

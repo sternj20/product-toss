@@ -3,13 +3,20 @@ import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import { seeFriendsData } from '../../actions/items/items'
+import { seeFriendsData, deleteImage } from '../../actions/items/items'
+import {navigateToComponent} from "../../utils/helpers.js"
 
 class singleImage extends Component {
+    componentDidMount(){
+        this.props.navigation.setParams({
+            navigateToComponent,
+            user: this.props.user
+        });
+    }
     render(){
         return(
             <View>
-                <TouchableOpacity onPress={()=>this.props.seeFriendsData(this.props, this.props.singleImage.createdBy)}>
+                <TouchableOpacity onPress={() => navigateToComponent(this.props.navigation, this.props.user, 'userImages')}>
                     <View style={styles.user}>
                         <MaterialIcons name="face" size={50}/>
                         <Text style={styles.userHeader}>{this.props.singleImage.userName}</Text>
@@ -20,6 +27,8 @@ class singleImage extends Component {
                     source={{uri:this.props.singleImage.url}} 
                     style={styles.image}/>
                 </View>
+                <Button onPress={() => deleteImage(this.props.user.uid, this.props.singleImage.url, this.props.singleImage._id)}  title="delete"/>
+
             </View>
         )
     }

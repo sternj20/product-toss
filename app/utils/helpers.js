@@ -33,8 +33,8 @@ export const getFollowingImages = (following) => {
         return images
 }
 
- export const  navigateToUserImages = (navigation, user) => {
-        navigation.navigate('userImages',{
-            user:user.email
+ export const  navigateToComponent = (navigation, user, destination) => {
+        navigation.navigate(destination,{
+            user
         })
 }
