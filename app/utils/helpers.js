@@ -32,3 +32,9 @@ export const getFollowingImages = (following) => {
             let images = shuffle(followersImages)
         return images
 }
+
+ export const  navigateToUserImages = (navigation, user) => {
+        navigation.navigate('userImages',{
+            user:user.email
+        })
+}
