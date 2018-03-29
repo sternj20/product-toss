@@ -29,17 +29,17 @@ export function itemsFetchData(url) {
     };
 }
 
-export function seeFriendsData( props, uID){
+export function seeFriendsData(navigation, uID){
     return(dispatch) => {
     dispatch(itemsFetchData(`https://product-toss-backend.herokuapp.com/api/user/${uID}`))
         
-    props.navigation.navigate('userImages')
+    navigation.navigate('userImages')
     }
 }
 
 export function showSingleImage(item, props, user){
     return (dispatch) => {
-        props.navigation.navigate('singleImage', {user})
+        props.navigation.navigate('singleImage', {user: {userName: user}})
         dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
     }
 }

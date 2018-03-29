@@ -17,7 +17,7 @@ class vsWorld extends React.Component {
                 {this.props.images.map((submission,index) => {
                     return(
 
-                    <TouchableOpacity onPress={() => this.props.showSingleImage(submission, this.props)} key={`${index}Container`} style={styles.container} >
+                    <TouchableOpacity onPress={() => this.props.showSingleImage(submission, this.props, submission.userName)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 

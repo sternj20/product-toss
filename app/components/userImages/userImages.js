@@ -17,7 +17,7 @@ export class userImages extends Component {
           <View style={styles.headerWrapper}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
+              style={styles.headerText}>{params.user.userName}</Text>
           </View>
         )
     }
@@ -77,7 +77,7 @@ export class userImages extends Component {
                     {this.props.userUploads.map((item, index) => {
                         return (
                             <Col key={item._id} sm={4} md={4} lg={3}>
-                                <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props, this.props.user)}>
+                                <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props, this.props.user.email.split('@')[0])}>
                                 <Image 
                                 source={{uri:item.url}} 
                                 key={item._id} 
@@ -92,10 +92,3 @@ export class userImages extends Component {
         )
     }
 }
-
-                            // <TouchableOpacity>
-                            //     <Button onPress={() => this.props.showSingleImage(item, this.props)}  title="show"/>
-                            //     <Button onPress={() => this.props.selectContest(item)}  title="submit"/>
-                            //     <Button onPress={() => deleteImage(this.props.user.uid, item.url, item._id)}  title="delete"/>
-
-                            // </TouchableOpacity>

@@ -8,16 +8,15 @@ import {navigateToComponent} from "../../utils/helpers.js"
 
 class singleImage extends Component {
 
-
     static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
         headerTitle: () => (
           <View style={styles.headerWrapper}>
-            <TouchableOpacity onPress={() => navigateToComponent(navigation, params.user, 'userImages')}>
+            <TouchableOpacity onPress={() => navigateToComponent(navigation, params.user.userName, 'userImages')}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
+              style={styles.headerText}>{params.user.userName}</Text>
             </TouchableOpacity>
           </View>
         )
