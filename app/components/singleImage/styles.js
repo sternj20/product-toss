@@ -19,5 +19,15 @@ export const styles = StyleSheet.create({
   },
   userHeader:{
     fontSize:30
+  },
+headerWrapper: {
+    flex: 1,
+  },
+  headerText: {
+    fontSize:40,
+    fontWeight:'bold',
+    color: 'white',
+    textAlign: 'center', // ok
+    alignSelf: 'center', // ok
   }
 });

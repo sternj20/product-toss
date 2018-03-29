@@ -22,7 +22,6 @@ export const shuffle = (array) => {
 
 //make an array of followers images out of the followers array 
 export const getFollowingImages = (following) => {
-    console.log('this is the' + following)
     let followersImages = []
     following.forEach(element => {
         // console.log(element)
@@ -31,6 +30,12 @@ export const getFollowingImages = (following) => {
         })
     })
             let images = shuffle(followersImages)
-        console.log(images)
         return images
+}
+
+ export const  navigateToComponent = (navigation, user, destination) => {
+    console.log(user)
+        navigation.navigate(destination,{
+            user
+        })
 }

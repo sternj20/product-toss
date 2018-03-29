@@ -37,9 +37,9 @@ export function seeFriendsData( props, uID){
     }
 }
 
-export function showSingleImage(item, props){
+export function showSingleImage(item, props, user){
     return (dispatch) => {
-        props.navigation.navigate('singleImage')
+        props.navigation.navigate('singleImage', {user})
         dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
     }
 }
@@ -81,7 +81,7 @@ export function deleteImage(uid, fileName, imgId ){
     console.log(imgId)
     let deleteUrl = `https://product-toss-backend.herokuapp.com/api/imgs/${uid}`
     let deleteData = {
-            fileName,
+            fileName: fileName.split('/')[3],
             imgId
     }
     let deleteOptions = {

@@ -1,4 +1,4 @@
-import {shuffle, getFollowingImages} from "../../utils/helpers.js"
+import {getFollowingImages} from "../../utils/helpers.js"
 const initialState = {
     images: [],
     userUploads: [],

@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
     singleImage: state.itemReducer.singleImage,
     modalVisible: state.itemReducer.modalVisible
 })
-
+ 
 const mapDispatchToProps = {
     showSingleImage,
     submitImageToContest,

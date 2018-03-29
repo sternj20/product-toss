@@ -23,7 +23,14 @@ export const AppNavigator = StackNavigator({
     vsWorld: { screen: vsWorld },
     signup: { screen: SignupContainer},
     singleImage: { screen: singleImage},
-});
+},  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: 'teal',
+      },
+    },
+  }
+);
 
 class AppWithNavigationState extends React.Component {
 
