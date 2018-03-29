@@ -47,5 +47,28 @@ export const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center', // ok
     alignSelf: 'center', // ok
+  },
+  followOrEditHeader:{
+    textAlign: 'center',
+    fontSize:30,
+    fontWeight:'bold',
+    alignSelf: 'center'
+  },
+  userInfoHeader: {
+    fontSize:20,
+    color: '#f4511e',
+    textAlign: 'center'
+
+  },
+  userInfoNumbers: {
+    fontSize:20,
+    fontWeight:'bold',
+    textAlign: 'center'
+  },
+  writtenText: {
+    marginLeft:10,
+    fontSize:20,
+    color:'blue',
+    textAlign: 'center'
   }
 });
