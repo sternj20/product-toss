@@ -15,9 +15,13 @@ class vsWorld extends React.Component {
             <ScrollView>
                 <Text style={styles.header}>This week's theme is {this.props.activeContest.name}</Text>
                 {this.props.images.map((submission,index) => {
+                    let user = {
+                        userName: submission.userName,
+                        createdBy: submission.createdBy
+                    }
                     return(
 
-                    <TouchableOpacity onPress={() => this.props.showSingleImage(submission, this.props, submission.userName)} key={`${index}Container`} style={styles.container} >
+                    <TouchableOpacity onPress={() => this.props.showSingleImage(submission, this.props.navigation, user)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 
@@ -35,6 +39,7 @@ class vsWorld extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    user: state.sessionReducer.user,
     activeContest: state.itemReducer.activeContest,
     images: state.itemReducer.contestImages
 })  

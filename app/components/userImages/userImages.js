@@ -22,6 +22,12 @@ export class userImages extends Component {
         )
     }
 }
+    componentDidMount() {
+        if(this.props.singleImage){
+            this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.singleImage.createdBy}`);
+        }
+    }
+
 
     render(){
         return(
@@ -77,7 +83,7 @@ export class userImages extends Component {
                     {this.props.userUploads.map((item, index) => {
                         return (
                             <Col key={item._id} sm={4} md={4} lg={3}>
-                                <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props, this.props.user.email.split('@')[0])}>
+                                <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props.navigation, this.props.user)}>
                                 <Image 
                                 source={{uri:item.url}} 
                                 key={item._id} 
