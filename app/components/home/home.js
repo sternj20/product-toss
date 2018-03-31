@@ -92,14 +92,20 @@ export class Home extends React.Component {
             </View>
             <ScrollView style={{height:480}}>
             {this.props.followingImages.length > 0 ? this.props.followingImages.map((item, index) => {
+                let user = {
+                    userName: item.userName,
+                    uid: item.createdBy
+                }
                 return(
 
                     <View key={item._id}>
                     <Text>{item.userName}</Text>
-                    <Image 
-                    source={{uri:item.url}} 
-                    key={item._id} 
-                    style={styles.image}/>
+                    <TouchableOpacity onPress={()=> this.props.showSingleImageFromOther(item, this.props.navigation, user)}>
+                        <Image 
+                        source={{uri:item.url}} 
+                        key={item._id} 
+                        style={styles.image}/>
+                    </TouchableOpacity>
                     </View>
                     )
             }) : <Text>'You don't have any friends in your feed! Add some friends you lonely fool!</Text>}

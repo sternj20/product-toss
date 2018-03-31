@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showSingleImage, hideModal, deleteImage, itemsFetchData } from "../../actions/items/items"
+import { showSingleImageFromOther, hideModal, deleteImage, itemsFetchData } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 import { followUser} from "../../actions/social/social"
 
@@ -14,12 +14,12 @@ const mapStateToProps = state => ({
     modalVisible: state.itemReducer.modalVisible,
     loading: state.sessionReducer.loading,
     othersData: state.itemReducer.othersData,
-    otherID: state.itemReducer.otherID
-
+    otherID: state.itemReducer.otherID,
+    following: state.itemReducer.following
 })
  
 const mapDispatchToProps = {
-    showSingleImage,
+    showSingleImageFromOther,
     submitImageToContest,
     hideModal,
     selectContest,

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Home } from '../../components/home/home';
-import { itemsFetchData, upload } from '../../actions/items/items';
+import { itemsFetchData, upload, showSingleImageFromOther } from '../../actions/items/items';
 import { logoutUser } from '../../actions/session/actions';
 
 const mapStateToProps = state => ({
@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps =  {
   logout: logoutUser,
   fetchData: itemsFetchData,
-  upload
+  upload,
+  showSingleImageFromOther
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
