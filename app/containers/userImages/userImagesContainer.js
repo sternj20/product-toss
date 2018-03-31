@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { showSingleImage, hideModal, deleteImage, itemsFetchData, toggleSubmitToContest} from "../../actions/items/items"
-import { submitImageToContest, selectContest} from "../../actions/vote/vote"
+import { showSingleImage, hideModal, deleteImage, itemsFetchData} from "../../actions/items/items"
+import { submitImageToContest, selectContest, toggleSubmitToContest} from "../../actions/vote/vote"
 import { userImages } from "../../components/userImages/userImages"
 
 const mapStateToProps = state => ({

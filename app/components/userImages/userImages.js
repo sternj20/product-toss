@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
+import { View, Button, Image, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -25,6 +25,20 @@ export class userImages extends Component {
 
     toggleSubmit(props){
         props.toggleSubmitToContest(!props.submitToContest)
+    }
+
+    showContest(item){
+      Alert.alert(
+          'Submit your pic of the week?',
+          `You may only submit one pic per week
+           This week's theme is:
+           ${this.props.contest.name}`,
+          [
+            {text: 'Cancel'},
+            {text: 'Submit', onPress: () => this.props.submitImageToContest(this.props.contest._id, item)},
+          ],
+          { cancelable: false }
+        )
     }
     render(){
         return(
@@ -80,7 +94,7 @@ export class userImages extends Component {
                     {this.props.userUploads.map((item, index) => {
                         return (
                             <Col key={item._id} sm={4} md={4} lg={3}>
-                                <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props.navigation, this.props.user)}>
+                                <TouchableOpacity onPress={() => this.props.submitToContest ? this.showContest(item) : this.props.showSingleImage(item, this.props.navigation, this.props.user)}>
                                 <Image 
                                 source={{uri:item.url}} 
                                 key={item._id} 

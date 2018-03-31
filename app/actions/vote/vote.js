@@ -21,6 +21,13 @@ export const selectContest = (img) => {
     }
 }
 
+export function toggleSubmitToContest(value){
+    return{
+        type: 'TOGGLE_SUBMIT_TO_CONTEST',
+        submitToContest: value
+    }
+}
+
 export const chooseContestToSee = (index) =>{
     return {
         type: 'SEE_CONTEST',
