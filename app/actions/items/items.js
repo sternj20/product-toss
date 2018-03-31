@@ -9,11 +9,15 @@ export function itemsFetchDataSuccess(items) {
     };
 }
 
-export function hideModal(){
-    return{
-        type: 'HIDE_MODAL'
+export function getFriendsDataSuccess(items){
+    return {
+        type: 'SEE_ANOTHERS_DATA_SUCCESS',
+        othersData: items
     }
 }
+
+
+
 export function itemsFetchData(url) {
     return (dispatch) => {
         fetch(url)
@@ -29,17 +33,48 @@ export function itemsFetchData(url) {
     };
 }
 
-export function seeFriendsData( props, uID){
+//Gets another users data
+export function getFriendsData(url){
+    return (dispatch) => {
+        dispatch({type:'SESSION_LOADING'})
+        fetch(url)
+        .then((response) => {
+
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response;
+        })
+        .then((response) => response.json())
+        .then((items) => {
+            dispatch(getFriendsDataSuccess(items))
+            dispatch({type: 'LOADING_SUCCESS'})
+        })
+    }; 
+}
+
+//For seeing another persons profile 
+export function seeFriendsData(navigation, uID){
     return(dispatch) => {
-    dispatch(itemsFetchData(`https://product-toss-backend.herokuapp.com/api/user/${uID}`))
+    dispatch({type: 'SESSION_LOADING'})
+    dispatch(getFriendsData(`https://product-toss-backend.herokuapp.com/api/user/other/${uID}`))
         
-    props.navigation.navigate('userImages')
+    navigation.navigate('OtherUserImages')
     }
 }
 
-export function showSingleImage(item, props, user){
+//Showing a single image if you are coming from the user profile -- pass your info as params 
+export function showSingleImage(item, navigation, user){
     return (dispatch) => {
-        props.navigation.navigate('singleImage', {user})
+        navigation.navigate('singleImage', {user})
+        dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
+    }
+}
+
+//Showing a single image if you are coming from another users profile -- pass their info as params 
+export function showSingleImageFromOther(item, navigation, user){
+    return (dispatch) => {
+        navigation.navigate('singleImage', {otherUser: user})
         dispatch({type: 'SHOW_SINGLE_ITEM', singleImage: item})
     }
 }

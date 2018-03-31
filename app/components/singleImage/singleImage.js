@@ -3,21 +3,36 @@ import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import { seeFriendsData, deleteImage } from '../../actions/items/items'
+import { seeFriendsData, deleteImage} from '../../actions/items/items'
 import {navigateToComponent} from "../../utils/helpers.js"
 
 class singleImage extends Component {
 
+    componentDidMount() {
+
+        this.props.navigation.setParams({
+            singleImage: this.props.singleImage,
+        });
+    }
+
 
     static navigationOptions = ({navigation}) => {
+            const helper = (params) => {
+        if (params.otherUser){
+            navigation.dispatch(seeFriendsData(navigation, params.otherUser.uid))
+        } else {
+            navigateToComponent(navigation, params.user, 'userImages')
+        }
+    }
     const { params } = navigation.state;
     return{
         headerTitle: () => (
+            //here have a conditional. params.other user ? then do the see friends data otherwise go to user images 
           <View style={styles.headerWrapper}>
-            <TouchableOpacity onPress={() => navigateToComponent(navigation, params.user, 'userImages')}>
+            <TouchableOpacity onPress={()=>helper(params)}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
+              style={styles.headerText}>{params.otherUser ? params.otherUser.userName : params.user.email.split('@')[0] }</Text>
             </TouchableOpacity>
           </View>
         )
@@ -27,12 +42,6 @@ class singleImage extends Component {
     render(){
         return(
             <View>
-                <TouchableOpacity onPress={() => navigateToComponent(this.props.navigation, this.props.user, 'userImages')}>
-                    <View style={styles.user}>
-                        <MaterialIcons name="face" size={50}/>
-                        <Text style={styles.userHeader}>{this.props.singleImage.userName}</Text>
-                    </View>
-                </TouchableOpacity>
                 <View>
                     <Image 
                     source={{uri:this.props.singleImage.url}} 
@@ -52,7 +61,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    seeFriendsData
 }
 
 
