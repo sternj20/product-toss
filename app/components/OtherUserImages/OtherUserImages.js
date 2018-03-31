@@ -6,6 +6,7 @@ import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { followUser} from "../../actions/social/social"
 
 
 export class OtherUserImages extends Component {
@@ -19,7 +20,7 @@ export class OtherUserImages extends Component {
           <View style={styles.headerWrapper}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}></Text>
+              style={styles.headerText}>{params.otherUser.userName}</Text>
           </View>
         )
     }
@@ -38,7 +39,9 @@ export class OtherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <Text style={styles.followOrEditHeader}>Follow</Text>
+                                <TouchableOpacity onPress={() => followUser(this.props.user.uid, this.props.otherID)}>
+                                    <Text style={styles.followOrEditHeader}>Follow</Text>
+                                </TouchableOpacity>
                                 </Col>
                             </Row>
                             <Row size={12}>

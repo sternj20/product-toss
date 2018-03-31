@@ -49,7 +49,6 @@ export const submitImageToContest = (cid, img) => {
             if (!response.ok) {
                 throw Error(response.statusText);
             }
-            dispatch({type: 'HIDE_MODAL'})
             })
 
     }

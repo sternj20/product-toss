@@ -54,12 +54,12 @@ export function getFriendsData(url){
 }
 
 //For seeing another persons profile 
-export function seeFriendsData(navigation, uID){
+export function seeFriendsData(navigation, user){
     return(dispatch) => {
     dispatch({type: 'SESSION_LOADING'})
-    dispatch(getFriendsData(`https://product-toss-backend.herokuapp.com/api/user/other/${uID}`))
+    dispatch(getFriendsData(`https://product-toss-backend.herokuapp.com/api/user/other/${user.uid}`))
         
-    navigation.navigate('OtherUserImages')
+    navigation.navigate('OtherUserImages', {otherUser: user})
     }
 }
 
