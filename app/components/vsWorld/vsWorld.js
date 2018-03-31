@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Button, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import  VotingBar  from '../votingBar/votingBar';
 import { chooseContestToSee } from '../../actions/vote/vote'
-import { showSingleImageFromOther } from '../../actions/items/items'
+import { showSingleImageFromOther, showSingleImage } from '../../actions/items/items'
 
 import { connect } from 'react-redux';
 import { styles } from './styles';
@@ -22,7 +22,8 @@ class vsWorld extends React.Component {
                     }
                     return(
 
-                    <TouchableOpacity onPress={() => this.props.showSingleImageFromOther(submission, this.props.navigation, user)} key={`${index}Container`} style={styles.container} >
+                    <TouchableOpacity 
+                    onPress={() => user.uid ? this.props.showSingleImageFromOther(submission, this.props.navigation, user) : this.props.showSingleImage(submission, this.props.navigation, this.props.user)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 
@@ -47,7 +48,8 @@ const mapStateToProps = state => ({
 })  
 
 const mapDispatchToProps =  {
-    showSingleImageFromOther
+    showSingleImageFromOther,
+    showSingleImage
 
 };
 
