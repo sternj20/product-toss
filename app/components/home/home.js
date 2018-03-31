@@ -58,6 +58,7 @@ export class Home extends React.Component {
         return {
             headerStyle: {
                 backgroundColor: 'teal',
+                height:70
             },
             headerTitle:(
               <View style={styles.headerWrapper}>
@@ -87,7 +88,6 @@ export class Home extends React.Component {
 
             <Button style={styles.smallButton} onPress={this.logout.bind(this)} title="Logout"></Button>
             <Button style={styles.smallButton} onPress={this.createContest} title="Create Contest"/>
-            <FontAwesome name="bars" size={50} color="black" style={{ marginTop: 12, marginLeft:10 }}/>
 
             </View>
             <ScrollView style={{height:480}}>

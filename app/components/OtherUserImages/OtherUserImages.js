@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { View, Button, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
 import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
@@ -6,7 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 
-export class userImages extends Component {
+export class OtherUserImages extends Component {
     static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
@@ -17,7 +19,7 @@ export class userImages extends Component {
           <View style={styles.headerWrapper}>
             <Text
               adjustsFontSizeToFit
-              style={styles.headerText}>{params.user.email.split('@')[0]}</Text>
+              style={styles.headerText}></Text>
           </View>
         )
     }
@@ -74,7 +76,7 @@ export class userImages extends Component {
                 </View>
                 <ScrollView>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                     <Row size={12}>
-                    {this.props.userUploads.map((item, index) => {
+                    {this.props.othersData.map((item, index) => {
                         return (
                             <Col key={item._id} sm={4} md={4} lg={3}>
                                 <TouchableOpacity onPress={() => this.props.showSingleImage(item, this.props.navigation, this.props.user)}>
@@ -99,3 +101,5 @@ export class userImages extends Component {
                             //     <Button onPress={() => deleteImage(this.props.user.uid, item.url, item._id)}  title="delete"/>
 
                             // </TouchableOpacity>
+
+

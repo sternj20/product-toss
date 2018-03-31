@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { showSingleImage, hideModal, deleteImage, itemsFetchData } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
-import { userImages } from "../../components/userImages/userImages"
+import { OtherUserImages } from "../../components/OtherUserImages/OtherUserImages"
 
 const mapStateToProps = state => ({
     user: state.sessionReducer.user,
@@ -24,4 +24,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(userImages);
+export default connect(mapStateToProps, mapDispatchToProps)(OtherUserImages);

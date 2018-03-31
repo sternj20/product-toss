@@ -4,6 +4,7 @@ const initialState = {
     userUploads: [],
     contestToSee: [],
     contests: [],
+    othersData: [],
     singleImage: '',
     recentUpload: '',
     modalVisible: false,
@@ -43,6 +44,8 @@ const itemReducer = (state = initialState, action) => {
             // }
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
+        case 'SEE_ANOTHERS_DATA_SUCCESS':
+            return { ...state, othersData: action.othersData.images}
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
         case 'SELECT_CONTEST':
