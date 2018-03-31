@@ -19,7 +19,7 @@ class singleImage extends Component {
     static navigationOptions = ({navigation}) => {
             const helper = (params) => {
         if (params.otherUser){
-            navigation.dispatch(seeFriendsData(navigation, params.otherUser.uid))
+            navigation.dispatch(seeFriendsData(navigation, params.otherUser))
         } else {
             navigateToComponent(navigation, params.user, 'userImages')
         }

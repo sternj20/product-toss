@@ -5,6 +5,7 @@ const initialState = {
     contestToSee: [],
     contests: [],
     othersData: [],
+    otherID: '',
     submitToContest: false,
     singleImage: '',
     recentUpload: '',
@@ -22,19 +23,26 @@ const itemReducer = (state = initialState, action) => {
             let followingImages = getFollowingImages(action.items.following)
             let items = []
             let counter = 1
-            let activeContest = action.items.activeContest.submissions;
-            //Pick two random images
-            while(counter <= 2){
-                newImg = activeContest.splice(Math.floor(Math.random() * activeContest.length), 1)
-                items = items.concat(newImg)
-                counter++;
-            }[]
+            let activeContest 
+            if(action.items.activeContest){
+                activeContest = action.items.activeContest.submissions
+               //Pick two random images
+                while(counter <= 2){
+                    newImg = activeContest.splice(Math.floor(Math.random() * activeContest.length), 1)
+                    items = items.concat(newImg)
+                    counter++;
+                }
+            } else {
+                activeContest = ''
+                items = []
+            }
+ 
             return { ...state,
                 contestImages: items,
                 userUploads: action.items.uploads,
                 followingImages: getFollowingImages(action.items.following),
                 archivedContests: action.items.archivedContests,
-                activeContest: action.items.activeContest,
+                activeContest: action.items.activeContest, 
                 contestToSee: action.items.archivedContests[0]
             }
         case 'VOTE_SUCCESS':
@@ -46,7 +54,7 @@ const itemReducer = (state = initialState, action) => {
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SEE_ANOTHERS_DATA_SUCCESS':
-            return { ...state, othersData: action.othersData.images}
+            return { ...state, othersData: action.othersData.images, otherID: action.othersData._id}
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
         case 'SELECT_CONTEST':

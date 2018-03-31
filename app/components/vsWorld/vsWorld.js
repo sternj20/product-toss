@@ -13,6 +13,7 @@ class vsWorld extends React.Component {
     render(){
         return(
             <ScrollView>
+                {this.props.activeContest ? <View>
                 <Text style={styles.header}>This week's theme is {this.props.activeContest.name}</Text>
                 {this.props.images.map((submission,index) => {
                     let user = {
@@ -33,6 +34,7 @@ class vsWorld extends React.Component {
                 <View style={styles.votingBar}>
                     <VotingBar/>
                 </View>
+                </View> : <Text> Looks like there isn't a contest going on right now, stay tuned...</Text>}
             </ScrollView>
         )                                                                                                                                                                                 
     }
