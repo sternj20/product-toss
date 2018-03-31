@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showSingleImage, hideModal, deleteImage, itemsFetchData } from "../../actions/items/items"
+import { showSingleImage, hideModal, deleteImage, itemsFetchData, toggleSubmitToContest} from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 import { userImages } from "../../components/userImages/userImages"
 
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
     singleImage: state.itemReducer.singleImage,
     modalVisible: state.itemReducer.modalVisible,
     loading: state.sessionReducer.loading,
-    othersData: state.itemReducer.othersData
+    othersData: state.itemReducer.othersData,
+    submitToContest: state.itemReducer.submitToContest
 
 })
  
@@ -21,7 +22,7 @@ const mapDispatchToProps = {
     hideModal,
     selectContest,
     fetchData: itemsFetchData,
-
+    toggleSubmitToContest
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(userImages);

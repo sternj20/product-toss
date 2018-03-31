@@ -5,6 +5,7 @@ const initialState = {
     contestToSee: [],
     contests: [],
     othersData: [],
+    submitToContest: false,
     singleImage: '',
     recentUpload: '',
     modalVisible: false,
@@ -52,6 +53,8 @@ const itemReducer = (state = initialState, action) => {
             return {...state, imageToSubmit: action.submission, modalVisible: true}
         case 'SEE_CONTEST':
             return {...state, contestToSee: state.contests[action.index].submissions}
+        case 'TOGGLE_SUBMIT_TO_CONTEST':
+            return {...state, submitToContest: action.submitToContest}
         case 'HIDE_MODAL':
             return {...state, modalVisible: false}
         default:

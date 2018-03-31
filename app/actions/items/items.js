@@ -16,6 +16,13 @@ export function getFriendsDataSuccess(items){
     }
 }
 
+export function toggleSubmitToContest(value){
+    return{
+        type: 'TOGGLE_SUBMIT_TO_CONTEST',
+        submitToContest: value
+    }
+}
+
 export function itemsFetchData(url) {
     return (dispatch) => {
         fetch(url)

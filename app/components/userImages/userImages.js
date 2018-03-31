@@ -23,6 +23,9 @@ export class userImages extends Component {
     }
 }
 
+    toggleSubmit(props){
+        props.toggleSubmitToContest(!props.submitToContest)
+    }
     render(){
         return(
             <View style={styles.container}> 
@@ -68,7 +71,7 @@ export class userImages extends Component {
                             <Text style={styles.writtenText}>Written text here will be found</Text>
                         </Col>
                         <Col sm={2}>
-                            <FontAwesome name="flag-checkered" size={50} color="#f4511e"/>
+                            <FontAwesome onPress ={() => this.toggleSubmit(this.props)} name="flag-checkered" size={50} color={this.props.submitToContest ?  'green' : '#f4511e'}/>
                         </Col>
                     </Row>
                 </View>

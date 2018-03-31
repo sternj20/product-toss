@@ -38,7 +38,7 @@ export class OtherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <Text style={styles.followOrEditHeader}>Edit your profile</Text>
+                                <Text style={styles.followOrEditHeader}>Follow</Text>
                                 </Col>
                             </Row>
                             <Row size={12}>
@@ -68,9 +68,6 @@ export class OtherUserImages extends Component {
                     <Row size={12}>
                         <Col sm={10}>
                             <Text style={styles.writtenText}>Written text here will be found</Text>
-                        </Col>
-                        <Col sm={2}>
-                            <FontAwesome name="flag-checkered" size={50} color="#f4511e"/>
                         </Col>
                     </Row>
                 </View>
