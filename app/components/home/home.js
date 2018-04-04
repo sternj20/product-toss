@@ -35,7 +35,7 @@ export class Home extends React.Component {
           quality: 0.7,
           base64: true
       })
-        this.props.upload(pickerResult.uri, this.props.user.uid, this.props.user.email)
+        this.props.upload(pickerResult.uri, this.props.userID, this.props.user.email)
     }
     logout() {
         this.props.logout();
@@ -94,7 +94,7 @@ export class Home extends React.Component {
             {this.props.followingImages.length > 0 ? this.props.followingImages.map((item, index) => {
                 let user = {
                     userName: item.userName,
-                    uid: item.createdBy
+                    uid: item._id
                 }
                 return(
 

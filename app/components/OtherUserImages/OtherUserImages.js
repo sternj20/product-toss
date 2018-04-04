@@ -39,7 +39,7 @@ export class OtherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <TouchableOpacity onPress={() => followUser(this.props.user.uid, this.props.otherID)}>
+                                <TouchableOpacity onPress={() => this.props.followUser(this.props.userID, this.props.otherID)}>
                                     <Text style={styles.followOrEditHeader}>Follow</Text>
                                 </TouchableOpacity>
                                 </Col>

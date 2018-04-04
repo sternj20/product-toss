@@ -3,12 +3,13 @@ import { View, Button, Image, Text, TouchableOpacity, ScrollView } from 'react-n
 import  VotingBar  from '../votingBar/votingBar';
 import { chooseContestToSee } from '../../actions/vote/vote'
 import { showSingleImageFromOther, showSingleImage } from '../../actions/items/items'
-
+import { imgNavHelper } from "../../utils/helpers.js"
 import { connect } from 'react-redux';
 import { styles } from './styles';
 
 
 class vsWorld extends React.Component {
+
 
     render(){
         return(
@@ -23,7 +24,7 @@ class vsWorld extends React.Component {
                     return(
 
                     <TouchableOpacity 
-                    onPress={() => user.uid ? this.props.showSingleImageFromOther(submission, this.props.navigation, user) : this.props.showSingleImage(submission, this.props.navigation, this.props.user)} key={`${index}Container`} style={styles.container} >
+                    onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 
@@ -42,6 +43,7 @@ class vsWorld extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    userID: state.itemReducer.userID,
     user: state.sessionReducer.user,
     activeContest: state.itemReducer.activeContest,
     images: state.itemReducer.contestImages

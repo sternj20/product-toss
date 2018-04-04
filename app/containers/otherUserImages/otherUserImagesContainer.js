@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
     modalVisible: state.itemReducer.modalVisible,
     loading: state.sessionReducer.loading,
     othersData: state.itemReducer.othersData,
+    userID: state.itemReducer.userID,
     otherID: state.itemReducer.otherID,
     following: state.itemReducer.following
 })
@@ -23,7 +24,8 @@ const mapDispatchToProps = {
     submitImageToContest,
     hideModal,
     selectContest,
-    fetchData: itemsFetchData,
+    fetchData: itemsFetchData,  
+    followUser
 
 }
 

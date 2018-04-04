@@ -9,7 +9,9 @@ const mapStateToProps = state => ({
 	recentUpload: state.itemReducer.recentUpload,
 	hasErrored: state.itemsHasErrored,
   	loading: state.sessionReducer.loading,
-    followingImages: state.itemReducer.followingImages
+    followingImages: state.itemReducer.followingImages,
+    userID: state.itemReducer.userID,
+    
 });
 
 const mapDispatchToProps =  {

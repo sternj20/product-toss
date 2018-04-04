@@ -4,6 +4,7 @@ import { chooseContestToSee } from '../../actions/vote/vote'
 import { connect } from 'react-redux';
 import { styles } from './styles';
 import { itemsFetchData, showSingleImageFromOther, showSingleImage} from '../../actions/items/items';
+import { imgNavHelper } from "../../utils/helpers.js"
 
 
 class preVsWorld extends React.Component {
@@ -20,7 +21,7 @@ class preVsWorld extends React.Component {
                         uid: submission.createdBy
                     }
                     return(
-                    <TouchableOpacity onPress={() => user.uid ? this.props.showSingleImageFromOther(submission, this.props.navigation, user) : this.props.showSingleImage(submission, this.props.navigation, this.props.user)} key={`${index}Container`} style={styles.container} >
+                    <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 
