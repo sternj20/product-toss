@@ -26,6 +26,12 @@ export class OtherUserImages extends Component {
     }
 }
 
+    helper = (props) => {
+        let followers = props.othersData.followers
+        if(followers.indexOf(props.userID)){
+            return true
+        }
+    }
     render(){
         return(
             <View style={styles.container}> 
@@ -40,7 +46,7 @@ export class OtherUserImages extends Component {
                             <Row size={12}>
                                 <Col sm={12}>
                                 <TouchableOpacity onPress={() => this.props.followUser(this.props.userID, this.props.otherID)}>
-                                    <Text style={styles.followOrEditHeader}>Follow</Text>
+                                    <Text style={styles.followOrEditHeader}>{this.props.following > -1 ? ' Following' : 'Follow'}</Text>
                                 </TouchableOpacity>
                                 </Col>
                             </Row>
