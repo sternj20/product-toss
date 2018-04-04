@@ -5,6 +5,7 @@ const initialState = {
     contestToSee: [],
     contests: [],
     othersData: [],
+    otherName: '',
     following: '',
     userID: '',
     otherID: '',
@@ -60,6 +61,7 @@ const itemReducer = (state = initialState, action) => {
             // let following = action.othersData.followers.indexOf(state.userID)
             return { ...state, othersData: action.othersData.images,
                     otherID: action.othersData._id,
+                    otherName: action.othersData.name,
                     following: action.othersData.followers.indexOf(state.userID)
                 }
         case 'SHOW_SINGLE_ITEM':

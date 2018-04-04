@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
     following: state.itemReducer.following,
     userID: state.itemReducer.userID,
     otherID: state.itemReducer.otherID,
+    otherName: state.itemReducer.otherName, 
     following: state.itemReducer.following
 })
  

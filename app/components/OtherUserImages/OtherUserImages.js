@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { View, Button, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
+import { View, Button, Image, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import { styles } from './styles';
 import {Column as Col, Row} from 'react-native-flexbox-grid';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -25,13 +25,18 @@ export class OtherUserImages extends Component {
         )
     }
 }
-
-    helper = (props) => {
-        let followers = props.othersData.followers
-        if(followers.indexOf(props.userID)){
-            return true
-        }
+    showAlert = () => {
+        Alert.alert(
+          `Unfollow ${this.props.otherName}`,
+          '',
+          [
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+            {text: 'OK', onPress: () => console.log('OK Pressed')},
+          ],
+          { cancelable: false }
+        )
     }
+
     render(){
         return(
             <View style={styles.container}> 
@@ -45,9 +50,19 @@ export class OtherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <TouchableOpacity onPress={() => this.props.followUser(this.props.userID, this.props.otherID)}>
-                                    <Text style={styles.followOrEditHeader}>{this.props.following > -1 ? ' Following' : 'Follow'}</Text>
-                                </TouchableOpacity>
+                                    {this.props.following > -1 ? 
+                                        <TouchableOpacity onPress={ () => this.showAlert()}>
+
+                                            <Text style={styles.followOrEditHeader}>
+                                            <MaterialIcons name="check" color="green" size={50}/>
+
+                                            Following</Text>
+                                        </TouchableOpacity> :
+                                       <TouchableOpacity onPress={() => this.props.followUser(this.props.userID, this.props.otherID)}>
+                                            <Text style={styles.followOrEditHeader}>
+                                            <MaterialIcons name="add" color="orange" size={50}/>
+                                            Follow</Text>
+                                        </TouchableOpacity>}
                                 </Col>
                             </Row>
                             <Row size={12}>
