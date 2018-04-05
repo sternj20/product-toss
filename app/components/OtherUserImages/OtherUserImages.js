@@ -31,7 +31,7 @@ export class OtherUserImages extends Component {
           '',
           [
             {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-            {text: 'OK', onPress: () => console.log('OK Pressed')},
+            {text: 'OK', onPress: () => this.props.unFollowUser(this.props.userID, this.props.otherID)},
           ],
           { cancelable: false }
         )

@@ -1,18 +1,11 @@
 import { connect } from 'react-redux';
 import { showSingleImageFromOther, hideModal, deleteImage, itemsFetchData } from "../../actions/items/items"
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
-import { followUser} from "../../actions/social/social"
+import { followUser, unFollowUser} from "../../actions/social/social"
 
 import { OtherUserImages } from "../../components/OtherUserImages/OtherUserImages"
 
 const mapStateToProps = state => ({
-    user: state.sessionReducer.user,
-    userUploads: state.itemReducer.userUploads,
-    contest: state.itemReducer.activeContest,
-    imageToSubmit: state.itemReducer.imageToSubmit,
-    singleImage: state.itemReducer.singleImage,
-    modalVisible: state.itemReducer.modalVisible,
-    loading: state.sessionReducer.loading,
     othersData: state.itemReducer.othersData,
     following: state.itemReducer.following,
     userID: state.itemReducer.userID,
@@ -27,7 +20,8 @@ const mapDispatchToProps = {
     hideModal,
     selectContest,
     fetchData: itemsFetchData,  
-    followUser
+    followUser,
+    unFollowUser,
 
 }
 
