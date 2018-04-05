@@ -17,19 +17,18 @@ class singleImage extends Component {
 
 
     static navigationOptions = ({navigation}) => {
-            const helper = (params) => {
-        if (params.otherUser){
-            navigation.dispatch(seeFriendsData(navigation, params.otherUser))
-        } else {
-            navigateToComponent(navigation, params.user, 'userImages')
-        }
+        const navigationHelper = (params) => {
+            if (params.otherUser){
+                navigation.dispatch(seeFriendsData(navigation, params.otherUser))
+            } else {
+                navigateToComponent(navigation, params.user, 'userImages')
+            }
     }
     const { params } = navigation.state;
     return{
         headerTitle: () => (
-            //here have a conditional. params.other user ? then do the see friends data otherwise go to user images 
           <View style={styles.headerWrapper}>
-            <TouchableOpacity onPress={()=>helper(params)}>
+            <TouchableOpacity onPress={()=>navigationHelper(params)}>
             <Text
               adjustsFontSizeToFit
               style={styles.headerText}>{params.otherUser ? params.otherUser.userName : params.user.email.split('@')[0] }</Text>

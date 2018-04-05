@@ -3,7 +3,8 @@ import { View, Button, Image, Text, TouchableOpacity, ScrollView } from 'react-n
 import { chooseContestToSee } from '../../actions/vote/vote'
 import { connect } from 'react-redux';
 import { styles } from './styles';
-import { itemsFetchData, showSingleImageFromOther} from '../../actions/items/items';
+import { itemsFetchData, showSingleImageFromOther, showSingleImage} from '../../actions/items/items';
+import { imgNavHelper } from "../../utils/helpers.js"
 
 
 class preVsWorld extends React.Component {
@@ -20,7 +21,7 @@ class preVsWorld extends React.Component {
                         uid: submission.createdBy
                     }
                     return(
-                    <TouchableOpacity onPress={() => this.props.showSingleImageFromOther(submission, this.props.navigation, user)} key={`${index}Container`} style={styles.container} >
+                    <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
                     <Image 
                     source={{uri:submission.url}} 
                     key={submission._id} 
@@ -42,7 +43,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps =  {
     fetchData: itemsFetchData,
-    showSingleImageFromOther
+    showSingleImageFromOther,
+    showSingleImage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(preVsWorld);

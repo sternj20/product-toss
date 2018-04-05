@@ -39,3 +39,12 @@ export const getFollowingImages = (following) => {
             user
         })
 }
+
+export const imgNavHelper = (submission, props, user) => {
+    if(submission.createdBy === props.userID){
+        props.showSingleImage(submission, props.navigation, props.user)
+    } else {
+        props.showSingleImageFromOther(submission, props.navigation, user)
+
+    }
+}

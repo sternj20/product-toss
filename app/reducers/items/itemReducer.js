@@ -5,6 +5,9 @@ const initialState = {
     contestToSee: [],
     contests: [],
     othersData: [],
+    otherName: '',
+    following: '',
+    userID: '',
     otherID: '',
     submitToContest: false,
     singleImage: '',
@@ -40,6 +43,7 @@ const itemReducer = (state = initialState, action) => {
             return { ...state,
                 contestImages: items,
                 userUploads: action.items.uploads,
+                userID: action.items.userID,
                 followingImages: getFollowingImages(action.items.following),
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest, 
@@ -54,7 +58,12 @@ const itemReducer = (state = initialState, action) => {
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
         case 'SEE_ANOTHERS_DATA_SUCCESS':
-            return { ...state, othersData: action.othersData.images, otherID: action.othersData._id}
+            // let following = action.othersData.followers.indexOf(state.userID)
+            return { ...state, othersData: action.othersData.images,
+                    otherID: action.othersData._id,
+                    otherName: action.othersData.name,
+                    following: action.othersData.followers.indexOf(state.userID)
+                }
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
         case 'SELECT_CONTEST':
