@@ -53,7 +53,9 @@ export class userImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <Text style={styles.followOrEditHeader}>Edit your profile</Text>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('editProfile')}>
+                                    <Text style={styles.followOrEditHeader}>Edit your profile</Text>
+                                </TouchableOpacity>
                                 </Col>
                             </Row>
                             <Row size={12}>

@@ -37,20 +37,6 @@ export class Home extends React.Component {
       })
         this.props.upload(pickerResult.uri, this.props.userID, this.props.user.email)
     }
-    logout() {
-        this.props.logout();
-        setTimeout(() => {
-         this.props.navigation.navigate('Main')
-     }, 100);
-    }
-
-
-
-    createContest(){
-        Actions.reset('createContest')
-    }
-
-
 
     static navigationOptions = ({navigation})=>{
         const {params = {}} = navigation.state;
@@ -85,10 +71,6 @@ export class Home extends React.Component {
             {loading ? <LoadingIndicator color="#ffffff" size="large"/> : 
             <View >
             <View style={{flexDirection:'row'}}>
-
-            <Button style={styles.smallButton} onPress={this.logout.bind(this)} title="Logout"></Button>
-            <Button style={styles.smallButton} onPress={this.createContest} title="Create Contest"/>
-
             </View>
             <ScrollView style={{height:480}}>
             {this.props.followingImages.length > 0 ? this.props.followingImages.map((item, index) => {
