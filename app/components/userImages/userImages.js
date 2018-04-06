@@ -60,13 +60,13 @@ export class userImages extends Component {
                             </Row>
                             <Row size={12}>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.following.length}</Text>
                                 </Col>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.userUploads.length}</Text>
                                 </Col>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.followers.length}</Text>
                                 </Col>
                             </Row>
                             <Row size={12}>

@@ -72,7 +72,7 @@ export class Home extends React.Component {
             <View >
             <View style={{flexDirection:'row'}}>
             </View>
-            <ScrollView style={{height:480}}>
+            <ScrollView style={{height:520}}>
             {this.props.followingImages.length > 0 ? this.props.followingImages.map((item, index) => {
                 let user = {
                     userName: item.userName,

@@ -12,7 +12,10 @@ const mapStateToProps = state => ({
     modalVisible: state.itemReducer.modalVisible,
     loading: state.sessionReducer.loading,
     othersData: state.itemReducer.othersData,
-    submitToContest: state.itemReducer.submitToContest
+    submitToContest: state.itemReducer.submitToContest,
+    following: state.itemReducer.following,
+    followers: state.itemReducer.followers
+
 
 })
  
