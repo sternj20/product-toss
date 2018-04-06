@@ -53,18 +53,20 @@ export class userImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                <Text style={styles.followOrEditHeader}>Edit your profile</Text>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('editProfile')}>
+                                    <Text style={styles.followOrEditHeader}>Edit your profile</Text>
+                                </TouchableOpacity>
                                 </Col>
                             </Row>
                             <Row size={12}>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.following.length}</Text>
                                 </Col>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.userUploads.length}</Text>
                                 </Col>
                                 <Col sm={4}>
-                                    <Text style={styles.userInfoNumbers}>00</Text>
+                                    <Text style={styles.userInfoNumbers}>{this.props.followers.length}</Text>
                                 </Col>
                             </Row>
                             <Row size={12}>

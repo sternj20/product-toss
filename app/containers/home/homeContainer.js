@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { Home } from '../../components/home/home';
 import { itemsFetchData, upload, showSingleImageFromOther } from '../../actions/items/items';
-import { logoutUser } from '../../actions/session/actions';
 
 const mapStateToProps = state => ({
 	routes: state.routes,
@@ -15,7 +14,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps =  {
-  logout: logoutUser,
   fetchData: itemsFetchData,
   upload,
   showSingleImageFromOther

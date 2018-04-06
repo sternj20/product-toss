@@ -8,7 +8,7 @@ import SignupContainer from '../../containers/session/signupContainer';
 import { restoreSession } from '../../actions/session/actions';
 import userImagesContainer from "../../containers/userImages/userImagesContainer"
 import otherUserImagesContainer from "../../containers/otherUserImages/otherUserImagesContainer"
-
+import editProfile from "../editProfile/editProfile"
 import preVsWorld from "../preVsWorld/preVsWorld"
 import vsWorld from "../vsWorld/vsWorld"
 import singleImage from "../singleImage/singleImage"
@@ -25,7 +25,8 @@ export const AppNavigator = StackNavigator({
     vsWorld: { screen: vsWorld },
     signup: { screen: SignupContainer},
     singleImage: { screen: singleImage},
-    OtherUserImages: {screen: otherUserImagesContainer}
+    OtherUserImages: {screen: otherUserImagesContainer},
+    editProfile: {screen: editProfile}
 },  {
     navigationOptions: {
       headerStyle: {
