@@ -81,13 +81,26 @@ export class Home extends React.Component {
                 return(
 
                     <View key={item._id}>
-                    <Text>{item.userName}</Text>
-                    <TouchableOpacity onPress={()=> this.props.showSingleImageFromOther(item, this.props.navigation, user)}>
-                        <Image 
-                        source={{uri:item.url}} 
-                        key={item._id} 
-                        style={styles.image}/>
-                    </TouchableOpacity>
+                        <View style={styles.imageUserInfo}>
+                            <TouchableOpacity style={styles.imageUserInfo} onPress={() => this.props.seeFriendsData(this.props.navigation, user)}>
+                                <MaterialIcons name="face" size={50}/>
+                                <Text style={styles.imageUserName}>{item.userName}</Text>
+                            </TouchableOpacity>
+                            <FontAwesome style={styles.bars} name="bars" color="#f4511e" size={50}/>
+
+                        </View>
+                        <TouchableOpacity onPress={()=> this.props.showSingleImageFromOther(item, this.props.navigation, user)}>
+                            <Image 
+                            source={{uri:item.url}} 
+                            key={item._id} 
+                            style={styles.image}/>
+                        </TouchableOpacity>
+                        <View style={styles.footer}>
+                            <FontAwesome name="diamond" color="teal" size={30}/>
+                            <Text style={styles.imageStats}>00</Text>
+                            <Ionicons name="ios-chatbubbles" color="teal" size={30}/>
+                            <Text style={styles.imageStats}>00</Text>
+                        </View>
                     </View>
                     )
             }) : <Text>'You don't have any friends in your feed! Add some friends you lonely fool!</Text>}

@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: 400,
     marginTop:20,
-    marginBottom: 200
+    marginBottom: 10
   },
   primary: {
     color: 'rgb(116, 70, 195)'
@@ -31,6 +31,31 @@ export const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center', // ok
     alignSelf: 'center', // ok
+  },
+  imageUserInfo:{
+    flexDirection: 'row'
+  },
+  footer: {
+    flexDirection: 'row',
+    marginBottom: 10
+  },
+  bars: {
+    position: 'absolute',
+    right: 20
+  },
+  imageStats:{
+    marginRight: 10,
+    marginLeft: 10,
+    color: 'teal',
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  imageUserName: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginLeft: 5,
+    color: 'teal',
+    alignSelf: 'center'
   },
   smallButton: {
     width:50,
