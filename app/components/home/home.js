@@ -9,11 +9,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {navigateToComponent} from "../../utils/helpers.js"
-
+import Collapsible from 'react-native-collapsible';
 
 
 export class Home extends React.Component {
 
+    data = [{
+      value: 'Banana',
+    }, {
+      value: 'Mango',
+    }, {
+      value: 'Pear',
+    }];
     componentDidMount() {
 
         this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
@@ -83,10 +90,8 @@ export class Home extends React.Component {
                     <View key={item._id}>
                         <View style={styles.imageUserInfo}>
                             <TouchableOpacity style={styles.imageUserInfo} onPress={() => this.props.seeFriendsData(this.props.navigation, user)}>
-                                <MaterialIcons name="face" size={50}/>
                                 <Text style={styles.imageUserName}>{item.userName}</Text>
                             </TouchableOpacity>
-                            <FontAwesome style={styles.bars} name="bars" color="#f4511e" size={50}/>
 
                         </View>
                         <TouchableOpacity onPress={()=> this.props.showSingleImageFromOther(item, this.props.navigation, user)}>
@@ -101,6 +106,14 @@ export class Home extends React.Component {
                             <Ionicons name="ios-chatbubbles" color="teal" size={30}/>
                             <Text style={styles.imageStats}>00</Text>
                         </View>
+                            <View style={styles.bars}>
+                            <FontAwesome  onPress={() => this.props.toggleCollapse(this.props.isCollapsed)} name="bars" color="#f4511e" size={50}/>
+                            <Collapsible style ={styles.collapse} collapsed={this.props.isCollapsed}>
+                                <Button title="Report"/>
+                                <Button title="Tweet"/>
+                                <Button title="Facebook"/>
+                            </Collapsible>
+                            </View>
                     </View>
                     )
             }) : <Text>'You don't have any friends in your feed! Add some friends you lonely fool!</Text>}

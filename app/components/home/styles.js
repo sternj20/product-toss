@@ -37,11 +37,12 @@ export const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: 'row',
-    marginBottom: 10
+    marginBottom: 20
   },
   bars: {
     position: 'absolute',
-    right: 20
+    right: 0,
+    width: '22%'
   },
   imageStats:{
     marginRight: 10,
@@ -57,6 +58,11 @@ export const styles = StyleSheet.create({
     color: 'teal',
     alignSelf: 'center'
   },
+  collapse: {
+    position :'absolute',
+    backgroundColor: 'white',
+  },
+
   smallButton: {
     width:50,
     height:5,

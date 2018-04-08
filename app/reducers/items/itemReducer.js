@@ -16,7 +16,8 @@ const initialState = {
     recentUpload: '',
     modalVisible: false,
     followingImages: [],
-    imageToSubmit: {}
+    imageToSubmit: {},
+    isCollapsed: true
 }
 
 
@@ -78,8 +79,8 @@ const itemReducer = (state = initialState, action) => {
             return {...state, contestToSee: state.contests[action.index].submissions}
         case 'TOGGLE_SUBMIT_TO_CONTEST':
             return {...state, submitToContest: action.submitToContest}
-        case 'HIDE_MODAL':
-            return {...state, modalVisible: false}
+        case 'TOGGLE_COLLAPSE':
+            return {...state, isCollapsed: action.isCollapsed}
         default:
             return state;
     }
