@@ -41,8 +41,9 @@ export const styles = StyleSheet.create({
   },
   bars: {
     position: 'absolute',
-    right: 0,
-    width: '22%'
+    right: 10,
+    alignItems: 'flex-end',
+    width: '22%',
   },
   imageStats:{
     marginRight: 10,
@@ -59,7 +60,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   collapse: {
-    position :'absolute',
     backgroundColor: 'white',
   },
 

@@ -90,9 +90,9 @@ export class Home extends React.Component {
                     <View key={item._id}>
                         <View style={styles.imageUserInfo}>
                             <TouchableOpacity style={styles.imageUserInfo} onPress={() => this.props.seeFriendsData(this.props.navigation, user)}>
+                                <MaterialIcons name="face" size={50}/>
                                 <Text style={styles.imageUserName}>{item.userName}</Text>
                             </TouchableOpacity>
-
                         </View>
                         <TouchableOpacity onPress={()=> this.props.showSingleImageFromOther(item, this.props.navigation, user)}>
                             <Image 
@@ -109,9 +109,9 @@ export class Home extends React.Component {
                             <View style={styles.bars}>
                             <FontAwesome  onPress={() => this.props.toggleCollapse(this.props.isCollapsed)} name="bars" color="#f4511e" size={50}/>
                             <Collapsible style ={styles.collapse} collapsed={this.props.isCollapsed}>
-                                <Button title="Report"/>
-                                <Button title="Tweet"/>
-                                <Button title="Facebook"/>
+                                <Button onPress={() => console.log('pressed')} title="Report"/>
+                                <Button onPress={() => console.log('pressed')} title="Tweet"/>
+                                <Button onPress={() => console.log('pressed')} title="Facebook"/>
                             </Collapsible>
                             </View>
                     </View>
