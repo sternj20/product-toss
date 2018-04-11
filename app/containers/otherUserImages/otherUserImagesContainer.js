@@ -6,13 +6,13 @@ import { followUser, unFollowUser} from "../../actions/social/social"
 import { otherUserImages } from "../../components/otherUserImages/otherUserImages"
 
 const mapStateToProps = state => ({
-    othersData: state.itemReducer.othersData,
     userID: state.itemReducer.userID,
-    otherID: state.itemReducer.otherID,
-    otherName: state.itemReducer.otherName, 
-    followingBool: state.itemReducer.followingBool,
-    otherFollowing: state.itemReducer.otherFollowing,
-    otherFollowers: state.itemReducer.otherFollowers
+    othersData: state.socialReducer.othersData,
+    otherID: state.socialReducer.otherID,
+    otherName: state.socialReducer.otherName, 
+    followingBool: state.socialReducer.followingBool,
+    otherFollowing: state.socialReducer.otherFollowing,
+    otherFollowers: state.socialReducer.otherFollowers
 })
  
 const mapDispatchToProps = {

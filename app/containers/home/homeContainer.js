@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Home } from '../../components/home/home';
-import { itemsFetchData, upload, showSingleImageFromOther, seeFriendsData, toggleCollapse } from '../../actions/items/items';
+import { itemsFetchData, upload, toggleCollapse, showSingleImageFromOther } from '../../actions/items/items';
+import { seeFriendsData } from "../../actions/social/social"
 
 const mapStateToProps = state => ({
 	routes: state.routes,

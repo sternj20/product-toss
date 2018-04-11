@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import { seeFriendsData, deleteImage} from '../../actions/items/items'
+import { deleteImage} from '../../actions/items/items'
+import {seeFriendsData} from "../../actions/social/social"
 import {navigateToComponent} from "../../utils/helpers.js"
 
 class singleImage extends Component {

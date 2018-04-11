@@ -50,7 +50,7 @@ export class otherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                    {this.props.followingBool > -1 ? 
+                                    {this.props.otherFollowers.indexOf(this.props.userID) > -1 ? 
                                         <TouchableOpacity onPress={ () => this.showAlert()}>
 
                                             <Text style={styles.followOrEditHeader}>
