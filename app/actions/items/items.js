@@ -59,7 +59,7 @@ export function seeFriendsData(navigation, user){
     dispatch({type: 'SESSION_LOADING'})
     dispatch(getFriendsData(`https://product-toss-backend.herokuapp.com/api/user/other/${user.uid}`))
         
-    navigation.navigate('OtherUserImages', {otherUser: user})
+    navigation.navigate('otherUserImages', {otherUser: user})
     }
 }
 

@@ -3,7 +3,7 @@ import { showSingleImageFromOther, hideModal, deleteImage, itemsFetchData } from
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 import { followUser, unFollowUser} from "../../actions/social/social"
 
-import { OtherUserImages } from "../../components/OtherUserImages/OtherUserImages"
+import { otherUserImages } from "../../components/otherUserImages/otherUserImages"
 
 const mapStateToProps = state => ({
     othersData: state.itemReducer.othersData,
@@ -26,4 +26,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OtherUserImages);
+export default connect(mapStateToProps, mapDispatchToProps)(otherUserImages);

@@ -25,7 +25,7 @@ export const AppNavigator = StackNavigator({
     vsWorld: { screen: vsWorld },
     signup: { screen: SignupContainer},
     singleImage: { screen: singleImage},
-    OtherUserImages: {screen: otherUserImagesContainer},
+    otherUserImages: {screen: otherUserImagesContainer},
     editProfile: {screen: editProfile}
 },  {
     navigationOptions: {

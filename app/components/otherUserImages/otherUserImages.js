@@ -9,7 +9,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { followUser} from "../../actions/social/social"
 
 
-export class OtherUserImages extends Component {
+export class otherUserImages extends Component {
     static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
