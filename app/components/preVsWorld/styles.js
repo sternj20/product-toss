@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1
   },
   image: {
     width: '100%',
@@ -24,13 +22,21 @@ export const styles = StyleSheet.create({
     top: '-50%'
   },
 
-  button: {
-    backgroundColor: '#88cc88',
-    height: 40,
-    margin: 10,
+  submissionGallery: {
+    backgroundColor: '#f4511e',
+    height: '20%',
     borderRadius: 5,
-    padding: 3,
     alignItems: 'center',
     justifyContent:'center',
+  },
+ headerWrapper: {
+    flex: 1,
+  },
+  headerText: {
+    fontSize:40,
+    fontWeight:'bold',
+    color: 'white',
+    textAlign: 'center', // ok
+    alignSelf: 'center', // ok
   },
 });

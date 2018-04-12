@@ -8,29 +8,42 @@ import { imgNavHelper } from "../../utils/helpers.js"
 
 
 class preVsWorld extends React.Component {
+    static navigationOptions = ({navigation}) => {
+    const { params } = navigation.state;
+    return{
+        headerTitle: () => (
+          <View style={styles.headerWrapper}>
+            <Text
+              adjustsFontSizeToFit
+              style={styles.headerText}>VS-world</Text>
+          </View>
+        )
+    }
+}
 	render(){
 		return(
-			<ScrollView>
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('vsWorld')}>
-                    <Text style={styles.button}>Submission Gallery</Text>
+            <View style={styles.container}>
+    			<ScrollView>
+                    {this.props.contestToSee.submissions.map((submission,index) => {
+                        let user = {
+                            userName: submission.userName,
+                            uid: submission.createdBy
+                        }
+                        return(
+                        <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
+                        <Image 
+                        source={{uri:submission.url}} 
+                        key={submission._id} 
+                        style={styles.image}
+                        />
+                        </TouchableOpacity>
+                        )
+                    })}
+    	        </ScrollView>
+                <TouchableOpacity style={styles.submissionGallery} onPress={() => this.props.navigation.navigate('vsWorld')}>
+                    <Text style={styles.headerText}>Submissions Gallery</Text>
                 </TouchableOpacity>
-                <Text style={styles.header}>Winner's from last weeks theme: {this.props.contestToSee.name}</Text>
-                {this.props.contestToSee.submissions.map((submission,index) => {
-                    let user = {
-                        userName: submission.userName,
-                        uid: submission.createdBy
-                    }
-                    return(
-                    <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
-                    <Image 
-                    source={{uri:submission.url}} 
-                    key={submission._id} 
-                    style={styles.image}
-                    />
-                    </TouchableOpacity>
-                    )
-                })}
-	        </ScrollView>
+            </View>
 		)                                                                                                                                                                                 
 	}
 }
@@ -48,3 +61,5 @@ const mapDispatchToProps =  {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(preVsWorld);
+
+// this.props.contestToSee.name

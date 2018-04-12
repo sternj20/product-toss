@@ -14,13 +14,6 @@ import Collapsible from 'react-native-collapsible';
 
 export class Home extends React.Component {
 
-    data = [{
-      value: 'Banana',
-    }, {
-      value: 'Mango',
-    }, {
-      value: 'Pear',
-    }];
     componentDidMount() {
 
         this.props.fetchData(`http://product-toss-backend.herokuapp.com/api/user/${this.props.user.uid}`);
