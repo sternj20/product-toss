@@ -9,12 +9,6 @@ export function itemsFetchDataSuccess(items) {
     };
 }
 
-export function getFriendsDataSuccess(items){
-    return {
-        type: 'SEE_ANOTHERS_DATA_SUCCESS',
-        othersData: items
-    }
-}
 
 
 
@@ -33,35 +27,7 @@ export function itemsFetchData(url) {
     };
 }
 
-//Gets another users data
-export function getFriendsData(url){
-    return (dispatch) => {
-        dispatch({type:'SESSION_LOADING'})
-        fetch(url)
-        .then((response) => {
 
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
-            return response;
-        })
-        .then((response) => response.json())
-        .then((items) => {
-            dispatch(getFriendsDataSuccess(items))
-            dispatch({type: 'LOADING_SUCCESS'})
-        })
-    }; 
-}
-
-//For seeing another persons profile 
-export function seeFriendsData(navigation, user){
-    return(dispatch) => {
-    dispatch({type: 'SESSION_LOADING'})
-    dispatch(getFriendsData(`https://product-toss-backend.herokuapp.com/api/user/other/${user.uid}`))
-        
-    navigation.navigate('OtherUserImages', {otherUser: user})
-    }
-}
 
 //Showing a single image if you are coming from the user profile -- pass your info as params 
 export function showSingleImage(item, navigation, user){
@@ -128,4 +94,11 @@ export function deleteImage(uid, fileName, imgId ){
         },
     };
     return fetch(deleteUrl, deleteOptions)
+}
+
+export function toggleCollapse(collapsed){
+    return {
+        type: 'TOGGLE_COLLAPSE',
+        isCollapsed: !collapsed
+    }   
 }

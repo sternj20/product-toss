@@ -9,7 +9,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { followUser} from "../../actions/social/social"
 
 
-export class OtherUserImages extends Component {
+export class otherUserImages extends Component {
     static navigationOptions = ({navigation}) => {
     const { params } = navigation.state;
     return{
@@ -50,7 +50,7 @@ export class OtherUserImages extends Component {
                         <Col sm={9}>
                             <Row size={12}>
                                 <Col sm={12}>
-                                    {this.props.followingBool > -1 ? 
+                                    {this.props.otherFollowers.indexOf(this.props.userID) > -1 ? 
                                         <TouchableOpacity onPress={ () => this.showAlert()}>
 
                                             <Text style={styles.followOrEditHeader}>

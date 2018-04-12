@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
 import sessionReducer from '../session/sessionReducer';
+import socialReducer from '../social/socialReducer';
 import itemReducer from '../items/itemReducer';
 import { AppNavigator } from '../../components/navigation/AppNavigator';
 
@@ -46,6 +47,7 @@ const AppReducer = combineReducers({
   nav,
   sessionReducer,
   itemReducer,
+  socialReducer
 });
 
 export default AppReducer;

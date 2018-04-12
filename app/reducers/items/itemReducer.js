@@ -4,19 +4,14 @@ const initialState = {
     userUploads: [],
     contestToSee: [],
     contests: [],
-    othersData: [],
-    otherFollowers: [],
-    otherFollowing: [],
-    otherName: '',
-    following: '',
     userID: '',
-    otherID: '',
     submitToContest: false,
     singleImage: '',
     recentUpload: '',
     modalVisible: false,
     followingImages: [],
-    imageToSubmit: {}
+    imageToSubmit: {},
+    isCollapsed: true
 }
 
 
@@ -61,15 +56,6 @@ const itemReducer = (state = initialState, action) => {
             // }
         case 'ITEM_UPLOAD':
             return { ...state, recentUpload: action.recentUpload}
-        case 'SEE_ANOTHERS_DATA_SUCCESS':
-            // let following = action.othersData.followers.indexOf(state.userID)
-            return { ...state, othersData: action.othersData.images,
-                    otherID: action.othersData._id,
-                    otherName: action.othersData.name,
-                    otherFollowers: action.othersData.followers,
-                    otherFollowing: action.othersData.following,
-                    followingBool: action.othersData.followers.indexOf(state.userID)
-                }
         case 'SHOW_SINGLE_ITEM':
             return { ...state, singleImage: action.singleImage}
         case 'SELECT_CONTEST':
@@ -78,8 +64,8 @@ const itemReducer = (state = initialState, action) => {
             return {...state, contestToSee: state.contests[action.index].submissions}
         case 'TOGGLE_SUBMIT_TO_CONTEST':
             return {...state, submitToContest: action.submitToContest}
-        case 'HIDE_MODAL':
-            return {...state, modalVisible: false}
+        case 'TOGGLE_COLLAPSE':
+            return {...state, isCollapsed: action.isCollapsed}
         default:
             return state;
     }

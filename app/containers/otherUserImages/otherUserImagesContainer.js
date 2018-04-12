@@ -3,16 +3,16 @@ import { showSingleImageFromOther, hideModal, deleteImage, itemsFetchData } from
 import { submitImageToContest, selectContest} from "../../actions/vote/vote"
 import { followUser, unFollowUser} from "../../actions/social/social"
 
-import { OtherUserImages } from "../../components/OtherUserImages/OtherUserImages"
+import { otherUserImages } from "../../components/otherUserImages/otherUserImages"
 
 const mapStateToProps = state => ({
-    othersData: state.itemReducer.othersData,
     userID: state.itemReducer.userID,
-    otherID: state.itemReducer.otherID,
-    otherName: state.itemReducer.otherName, 
-    followingBool: state.itemReducer.followingBool,
-    otherFollowing: state.itemReducer.otherFollowing,
-    otherFollowers: state.itemReducer.otherFollowers
+    othersData: state.socialReducer.othersData,
+    otherID: state.socialReducer.otherID,
+    otherName: state.socialReducer.otherName, 
+    followingBool: state.socialReducer.followingBool,
+    otherFollowing: state.socialReducer.otherFollowing,
+    otherFollowers: state.socialReducer.otherFollowers
 })
  
 const mapDispatchToProps = {
@@ -26,4 +26,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OtherUserImages);
+export default connect(mapStateToProps, mapDispatchToProps)(otherUserImages);
