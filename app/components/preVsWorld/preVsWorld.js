@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { styles } from './styles';
 import { itemsFetchData, showSingleImageFromOther, showSingleImage} from '../../actions/items/items';
 import { imgNavHelper } from "../../utils/helpers.js"
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Collapsible from 'react-native-collapsible';
 
 
 class preVsWorld extends React.Component {
@@ -30,13 +33,29 @@ class preVsWorld extends React.Component {
                             uid: submission.createdBy
                         }
                         return(
-                        <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
-                        <Image 
-                        source={{uri:submission.url}} 
-                        key={submission._id} 
-                        style={styles.image}
-                        />
-                        </TouchableOpacity>
+                        <View key={user.uid}>
+                            <View style={styles.imageUserInfo}>
+                                <TouchableOpacity style={styles.imageUserInfo}>
+                                    <MaterialIcons name="face" size={50}/>
+                                    <Text style={styles.imageUserName}>{user.userName}</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <TouchableOpacity onPress={() => imgNavHelper(submission, this.props, user)} key={`${index}Container`} style={styles.container} >
+                            <Image 
+                            source={{uri:submission.url}} 
+                            key={submission._id} 
+                            style={styles.image}
+                            />
+                            </TouchableOpacity>
+                            <View style={styles.bars}>
+                            <FontAwesome  name="diamond" color="teal" size={50}/>
+                            <Collapsible style ={styles.collapse} collapsed={true}>
+                                <Button onPress={() => console.log('pressed')} title="Report"/>
+                                <Button onPress={() => console.log('pressed')} title="Tweet"/>
+                                <Button onPress={() => console.log('pressed')} title="Facebook"/>
+                            </Collapsible>
+                            </View>
+                        </View>
                         )
                     })}
     	        </ScrollView>

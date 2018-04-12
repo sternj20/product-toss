@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 250,
+    height: 400,
     marginTop:20,
     marginBottom: 80
   },
@@ -21,7 +21,15 @@ export const styles = StyleSheet.create({
   votingBar: {
     top: '-50%'
   },
-
+  bars: {
+    position: 'absolute',
+    right: 10,
+    alignItems: 'flex-end',
+    width: '22%',
+  },
+  collapse: {
+    backgroundColor: 'white',
+  },
   submissionGallery: {
     backgroundColor: '#f4511e',
     height: '20%',
@@ -38,5 +46,15 @@ export const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center', // ok
     alignSelf: 'center', // ok
+  },
+  imageUserInfo:{
+    flexDirection: 'row'
+  },
+  imageUserName: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginLeft: 5,
+    color: 'teal',
+    alignSelf: 'center'
   },
 });

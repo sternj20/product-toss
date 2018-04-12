@@ -99,14 +99,14 @@ export class Home extends React.Component {
                             <Ionicons name="ios-chatbubbles" color="teal" size={30}/>
                             <Text style={styles.imageStats}>00</Text>
                         </View>
-                            <View style={styles.bars}>
-                            <FontAwesome  onPress={() => this.props.toggleCollapse(this.props.isCollapsed)} name="bars" color="#f4511e" size={50}/>
-                            <Collapsible style ={styles.collapse} collapsed={this.props.isCollapsed}>
-                                <Button onPress={() => console.log('pressed')} title="Report"/>
-                                <Button onPress={() => console.log('pressed')} title="Tweet"/>
-                                <Button onPress={() => console.log('pressed')} title="Facebook"/>
-                            </Collapsible>
-                            </View>
+                        <View style={styles.bars}>
+                        <FontAwesome  onPress={() => this.props.toggleCollapse(this.props.isCollapsed)} name="bars" color="#f4511e" size={50}/>
+                        <Collapsible style ={styles.collapse} collapsed={this.props.isCollapsed}>
+                            <Button onPress={() => console.log('pressed')} title="Report"/>
+                            <Button onPress={() => console.log('pressed')} title="Tweet"/>
+                            <Button onPress={() => console.log('pressed')} title="Facebook"/>
+                        </Collapsible>
+                        </View>
                     </View>
                     )
             }) : <Text>'You don't have any friends in your feed! Add some friends you lonely fool!</Text>}
