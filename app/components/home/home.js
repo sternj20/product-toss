@@ -175,14 +175,12 @@ export class Home extends React.Component {
                                                     >
                                                         00
                                                     </Text>
+
                                                 </View>
                                                 <View style={styles.bars}>
                                                     <FontAwesome
                                                         onPress={() =>
-                                                            this.props.toggleCollapse(
-                                                                this.props
-                                                                    .isCollapsed
-                                                            )
+                                                            this.props.toggleCollapse(this.props.followingImages[index].collapsed, index)
                                                         }
                                                         name="bars"
                                                         color="#f4511e"
@@ -191,8 +189,7 @@ export class Home extends React.Component {
                                                     <Collapsible
                                                         style={styles.collapse}
                                                         collapsed={
-                                                            this.props
-                                                                .isCollapsed
+                                                            this.props.followingImages[index].collapsed
                                                         }
                                                     >
                                                         <Button

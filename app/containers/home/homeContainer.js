@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
   	loading: state.sessionReducer.loading,
     followingImages: state.itemReducer.followingImages,
     userID: state.itemReducer.userID,
-    isCollapsed: state.itemReducer.isCollapsed
-    
+    isCollapsed: state.itemReducer.isCollapsed,
+    test: state.itemReducer.test
 });
 
 const mapDispatchToProps =  {

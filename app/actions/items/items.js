@@ -96,9 +96,10 @@ export function deleteImage(uid, fileName, imgId ){
     return fetch(deleteUrl, deleteOptions)
 }
 
-export function toggleCollapse(collapsed){
+export function toggleCollapse(collapsed, index){
     return {
         type: 'TOGGLE_COLLAPSE',
-        isCollapsed: !collapsed
+        imageToToggle: index,
+        collapsed
     }   
 }
