@@ -16,7 +16,7 @@ class singleImage extends Component {
         });
     }
 
-
+    //USE THIS IN PREVSWORLD SOMEHOW 
     static navigationOptions = ({navigation}) => {
         const navigationHelper = (params) => {
             if (params.otherUser){
