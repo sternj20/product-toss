@@ -27,6 +27,10 @@ class singleImage extends Component {
     }
     const { params } = navigation.state;
     return{
+        headerStyle: {
+            backgroundColor: "#f4511e",
+            height: 70
+        },
         headerTitle: () => (
           <View style={styles.headerWrapper}>
             <TouchableOpacity onPress={()=>navigationHelper(params)}>
@@ -35,6 +39,18 @@ class singleImage extends Component {
               style={styles.headerText}>{params.otherUser ? params.otherUser.userName : params.user.email.split('@')[0] }</Text>
             </TouchableOpacity>
           </View>
+        ),
+        headerRight: (
+            <View style={styles.headerWrapper}>
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.navigate('Home')
+                    }
+                    style={{ flexDirection: "row" }}
+                >
+                    <MaterialIcons name="home" size={50} color="white" />
+                </TouchableOpacity>
+            </View>
         )
     }
 }

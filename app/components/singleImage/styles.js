@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   image: {
-    width: 400,
+    width: '100%',
     height: 400,
   },
   button: {
