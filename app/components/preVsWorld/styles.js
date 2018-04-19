@@ -18,6 +18,13 @@ export const styles = StyleSheet.create({
     color: 'blue'
 
   },
+  themeHead: {
+    fontSize: 20,
+  },
+  theme: {
+    fontSize: 20,
+    color: '#f4511e'
+  },
   votingBar: {
     top: '-50%'
   },

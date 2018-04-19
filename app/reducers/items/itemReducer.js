@@ -48,7 +48,8 @@ const itemReducer = (state = initialState, action) => {
                 followers: action.items.followers,
                 archivedContests: action.items.archivedContests,
                 activeContest: action.items.activeContest,
-                contestToSee: action.items.archivedContests[0]
+                contestToSee: action.items.archivedContests[0],
+                contestToSeeName: action.items.archivedContests[0].name
             };
         case "VOTE_SUCCESS":
             console.log(activeContest);
@@ -69,7 +70,7 @@ const itemReducer = (state = initialState, action) => {
         case "SEE_CONTEST":
             return {
                 ...state,
-                contestToSee: state.contests[action.index][submissions]
+                contestToSee: state.contests[action.index]
             };
         case "TOGGLE_SUBMIT_TO_CONTEST":
             return { ...state, submitToContest: action.submitToContest };

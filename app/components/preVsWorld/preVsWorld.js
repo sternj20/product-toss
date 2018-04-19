@@ -93,7 +93,7 @@ class preVsWorld extends React.Component {
                                                         .submissions[index]
                                                         .collapsed,
                                                     index,
-                                                    'contestToSee'
+                                                    "contestToSee"
                                                 )
                                             }
                                             name="diamond"
@@ -108,12 +108,10 @@ class preVsWorld extends React.Component {
                                                     .collapsed
                                             }
                                         >
-                                            <Button
-                                                onPress={() =>
-                                                    console.log("pressed")
-                                                }
-                                                title="Report"
-                                            />
+                                            <Text style={styles.themeHead}>Theme: </Text>
+                                            <Text style={styles.theme}>
+                                                {this.props.contestToSeeName}
+                                            </Text>
                                             <Button
                                                 onPress={() =>
                                                     console.log("pressed")
@@ -148,7 +146,8 @@ const mapStateToProps = state => ({
     user: state.sessionReducer.user,
     userID: state.itemReducer.userID,
     archivedContests: state.itemReducer.archivedContests,
-    contestToSee: state.itemReducer.contestToSee
+    contestToSee: state.itemReducer.contestToSee,
+    contestToSeeName: state.itemReducer.contestToSeeName
 });
 
 const mapDispatchToProps = {
