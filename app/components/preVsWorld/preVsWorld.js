@@ -13,7 +13,8 @@ import { styles } from "./styles";
 import {
     itemsFetchData,
     showSingleImageFromOther,
-    showSingleImage
+    showSingleImage,
+    toggleCollapse
 } from "../../actions/items/items";
 import { imgNavHelper, profileNavHelper } from "../../utils/helpers.js";
 import { seeFriendsData } from "../../actions/social/social";
@@ -86,13 +87,26 @@ class preVsWorld extends React.Component {
                                     </TouchableOpacity>
                                     <View style={styles.bars}>
                                         <FontAwesome
+                                            onPress={() =>
+                                                this.props.toggleCollapse(
+                                                    this.props.contestToSee
+                                                        .submissions[index]
+                                                        .collapsed,
+                                                    index,
+                                                    'contestToSee'
+                                                )
+                                            }
                                             name="diamond"
                                             color="teal"
                                             size={50}
                                         />
                                         <Collapsible
                                             style={styles.collapse}
-                                            collapsed={true}
+                                            collapsed={
+                                                this.props.contestToSee
+                                                    .submissions[index]
+                                                    .collapsed
+                                            }
                                         >
                                             <Button
                                                 onPress={() =>
@@ -141,7 +155,8 @@ const mapDispatchToProps = {
     fetchData: itemsFetchData,
     showSingleImageFromOther,
     showSingleImage,
-    seeFriendsData
+    seeFriendsData,
+    toggleCollapse
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(preVsWorld);
