@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View, Button, Image, Text, TouchableOpacity } from "react-native";
+import {
+    View,
+    Button,
+    Image,
+    Text,
+    TouchableOpacity,
+    ScrollView
+} from "react-native";
 import { styles } from "./styles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -59,7 +66,7 @@ class singleImage extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <Image
                     source={{ uri: this.props.singleImage.url }}
                     style={styles.image}
@@ -71,27 +78,66 @@ class singleImage extends Component {
                         <FontAwesome name="bars" color="#f4511e" size={40} />
                     </View>
                 </View>
-                <View style={styles.comments}>
-                    <View>
-                        <Ionicons
-                            name="ios-chatbubbles"
-                            size={30}
-                            color="teal"
+                <ScrollView>
+                    <View style={styles.comments}>
+                        <View>
+                            <Ionicons
+                                name="ios-chatbubbles"
+                                size={30}
+                                color="teal"
+                            />
+                        </View>
+                        <View style={{marginLeft:10}}>
+                            <View>
+                                <Text style={styles.commentUser}>username</Text>
+                                <Text style={styles.commentText}>
+                                    Newest comments show up first in this list.
+                                </Text>
+                            </View>
+                            <View>
+                                <Text style={styles.commentUser}>username</Text>
+                                <Text style={styles.commentText}>
+                                    Older comments move down the list as it
+                                    builds. Older women are also pretty hot.
+                                </Text>
+                            </View>
+                            <View>
+                                <Text style={styles.commentUser}>username</Text>
+                                <Text style={styles.commentText}>
+                                    When the list gets too long it loads as a
+                                    user scrolls down
+                                </Text>
+                            </View>
+                            <View>
+                                <Text style={styles.commentUser}>username</Text>
+                                <Text style={styles.commentText}>
+                                    When the list gets too long it loads as a
+                                    user scrolls down
+                                </Text>
+                            </View>
+                            <View>
+                                <Text style={styles.commentUser}>username</Text>
+                                <Text style={styles.commentText}>
+                                    Now watch me whip. Now watch me nay nay.
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                </ScrollView>
+                <View style={styles.options}>
+                    <View style={styles.button}>
+                        <Button
+                            color="gray"
+                            title="Nominate"
+                            onPress={() => console.log("hi")}
                         />
                     </View>
-                    <View style={styles.commentContent}>
-                        <View style={styles.comment}>
-                            <Text style={styles.commentUser}>username</Text>
-                            <Text style={styles.commentText}>Newest comments show up first in this list.</Text>
-                        </View>
-                        <View style={styles.comment}>
-                            <Text style={styles.commentUser}>username</Text>
-                            <Text style={styles.commentText}>older comments move down the list as it builds</Text>
-                        </View>
-                        <View style={styles.comment}>
-                            <Text style={styles.commentUser}>username</Text>
-                            <Text style={styles.commentText}>when the list gets too long it loads as a user scrolls down</Text>
-                        </View>
+                    <View style={styles.button}>
+                        <Button
+                            color="gray"
+                            title="Comment"
+                            onPress={() => console.log("hi")}
+                        />
                     </View>
                 </View>
             </View>

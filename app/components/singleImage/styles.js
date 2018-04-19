@@ -3,19 +3,14 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     image: {
         width: "100%",
-        height: "65%"
-    },
-    button: {
-        backgroundColor: "#88cc88",
-        height: 40,
-        margin: 10,
-        borderRadius: 5,
-        padding: 3,
-        alignItems: "center",
-        justifyContent: "center"
+        height: "60%"
     },
     user: {
         flexDirection: "row"
+    },
+    button: {
+        width: '40%',
+        marginLeft: 20
     },
     userHeader: {
         fontSize: 30
@@ -25,32 +20,27 @@ export const styles = StyleSheet.create({
     },
     singleImageHeadText: {
         fontSize: 20,
-        color: 'teal',
-        fontWeight: 'bold',
+        color: "teal",
+        fontWeight: "bold",
         marginLeft: 10
     },
-    headerWrapper: {
+    headerWrapper: {    
         flex: 1
     },
     commentContent: {
-        marginLeft: 20,
+        marginLeft: 20
     },
     commentUser: {
         fontSize: 20,
-        color: 'teal',
-        fontWeight: 'bold',
+        color: "teal",
+        fontWeight: "bold"
     },
     comments: {
-        flexDirection: 'row'
-    },
-    comment: {
-        flexDirection: 'row',
-        flexWrap:'wrap',
-
+        flexDirection: "row"
     },
     commentText: {
         fontSize: 17,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         marginLeft: 10
     },
     headerText: {
@@ -60,10 +50,15 @@ export const styles = StyleSheet.create({
         textAlign: "center", // ok
         alignSelf: "center" // ok
     },
-  bars: {
-    position: 'absolute',
-    right: 10,
-    alignItems: 'flex-end',
-    width: '22%',
-  },
+    options: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    justifyContent:'center',
+    },
+    bars: {
+        position: "absolute",
+        right: 10,
+        alignItems: "flex-end",
+        width: "22%"
+    },
 });
