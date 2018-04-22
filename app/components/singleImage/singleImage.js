@@ -12,9 +12,10 @@ import { styles } from "./styles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { deleteImage } from "../../actions/items/items";
+import { deleteImage, toggleCollapse } from "../../actions/items/items";
 import { seeFriendsData } from "../../actions/social/social";
 import { navigateToComponent } from "../../utils/helpers.js";
+import Collapsible from "react-native-collapsible";
 
 class singleImage extends Component {
     componentDidMount() {
@@ -75,7 +76,41 @@ class singleImage extends Component {
                     <FontAwesome name="diamond" color="teal" size={20} />
                     <Text style={styles.singleImageHeadText}>00</Text>
                     <View style={styles.bars}>
-                        <FontAwesome name="bars" color="#f4511e" size={40} />
+                        <FontAwesome
+                            name="bars"
+                            onPress={() =>
+                                this.props.toggleCollapse(
+                                    this.props.singleImage.collapsed,
+                                    0,
+                                    "singleImage"
+                                )
+                            }
+                            color="#f4511e"
+                            size={40}
+                        />
+                        <Collapsible
+                            style={styles.collapse}
+                            collapsed={this.props.singleImage.collapsed}
+                        >
+                            <Button
+                                onPress={() =>
+                                    deleteImage(
+                                        this.props.user.uid,
+                                        this.props.singleImage.url,
+                                        this.props.singleImage._id
+                                    )
+                                }
+                                title="Delete Post"
+                            />
+                            <Button
+                                onPress={() => console.log("pressed")}
+                                title="Tweet"
+                            />
+                            <Button
+                                onPress={() => console.log("pressed")}
+                                title="Facebook"
+                            />
+                        </Collapsible>
                     </View>
                 </View>
                 <ScrollView>
@@ -143,7 +178,11 @@ class singleImage extends Component {
                         onPress={() => console.log("hi")}
                     >
                         <View style={styles.iconContainer}>
-                        <FontAwesome name="diamond" color="#f4511e" size={20} />
+                            <FontAwesome
+                                name="diamond"
+                                color="#f4511e"
+                                size={20}
+                            />
                         </View>
                         <Text style={styles.optionText}>Nominate</Text>
                     </TouchableOpacity>
@@ -152,11 +191,11 @@ class singleImage extends Component {
                         onPress={() => console.log("hi")}
                     >
                         <View style={styles.iconContainer}>
-                        <Ionicons
-                            name="ios-chatbubbles"
-                            size={20}
-                            color="#f4511e"
-                        />
+                            <Ionicons
+                                name="ios-chatbubbles"
+                                size={20}
+                                color="#f4511e"
+                            />
                         </View>
                         <Text style={styles.optionText}>Comment</Text>
                     </TouchableOpacity>
@@ -171,17 +210,8 @@ const mapStateToProps = state => ({
     user: state.sessionReducer.user
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+    toggleCollapse
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(singleImage);
-
-// <Button
-//     onPress={() =>
-//         deleteImage(
-//             this.props.user.uid,
-//             this.props.singleImage.url,
-//             this.props.singleImage._id
-//         )
-//     }
-//     title="delete"
-// />

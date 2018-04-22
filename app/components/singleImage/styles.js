@@ -78,6 +78,7 @@ export const styles = StyleSheet.create({
         position: "absolute",
         right: 10,
         alignItems: "flex-end",
-        width: "22%"
+        width: "22%",
+        zIndex: 2
     }
 });

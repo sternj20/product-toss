@@ -79,10 +79,15 @@ const itemReducer = (state = initialState, action) => {
             if (action.destination === "contestToSee") {
                 submissions = state[action.destination].submissions;
                 submissions[action.imageToToggle].collapsed = !action.collapsed;
-                stateMutation.submissions = submissions
+                stateMutation.submissions = submissions;
+            } else if (action.destination === "singleImage") {
+                stateMutation = { ...state.singleImage };
+                stateMutation.collapsed = !action.collapsed;
+                return { ...state, singleImage: stateMutation };
             } else {
-                stateMutation[action.imageToToggle].collapsed = !action.collapsed;
-
+                stateMutation[
+                    action.imageToToggle
+                ].collapsed = !action.collapsed;
             }
             return { ...state, [action.destination]: stateMutation };
         default:
