@@ -9,8 +9,13 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     button: {
+        backgroundColor: "#D3D3D3",
         width: "40%",
-        marginLeft: 20
+        height: 35,
+        marginLeft: 20,
+        flexDirection: 'row',
+                alignItems: "center",
+        justifyContent: "center"
     },
     userHeader: {
         fontSize: 30
@@ -43,6 +48,19 @@ export const styles = StyleSheet.create({
     commentText: {
         fontSize: 17,
         fontWeight: "bold",
+    },
+    optionText: {
+        color: "#f4511e",
+        fontSize: 18
+    },
+    iconContainer: {
+        position: 'absolute',
+        left:0
+    },
+    nominate: {
+        textAlign: 'center',
+        alignSelf: 'center',
+
     },
     headerText: {
         fontSize: 40,

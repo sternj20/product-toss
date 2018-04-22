@@ -89,35 +89,47 @@ class singleImage extends Component {
                         </View>
                         <View style={styles.commentContent}>
                             <Text>
-                                <Text style={styles.commentUser}>username </Text>
+                                <Text style={styles.commentUser}>
+                                    username{" "}
+                                </Text>
                                 <Text style={styles.commentText}>
-                                    Newest comments show up first in this list.Newest comments show up first in this list.
-                                    Newest comments show up first in this list.
+                                    Newest comments show up first in this
+                                    list.Newest comments show up first in this
+                                    list. Newest comments show up first in this
+                                    list.
                                 </Text>
                             </Text>
                             <Text>
-                                <Text style={styles.commentUser}>username </Text>
+                                <Text style={styles.commentUser}>
+                                    username{" "}
+                                </Text>
                                 <Text style={styles.commentText}>
                                     Older comments move down the list as it
                                     builds. Older women are also pretty hot.
                                 </Text>
                             </Text>
                             <Text>
-                                <Text style={styles.commentUser}>username </Text>
+                                <Text style={styles.commentUser}>
+                                    username{" "}
+                                </Text>
                                 <Text style={styles.commentText}>
                                     When the list gets too long it loads as a
                                     user scrolls down
                                 </Text>
                             </Text>
                             <Text>
-                                <Text style={styles.commentUser}>username </Text>
+                                <Text style={styles.commentUser}>
+                                    username{" "}
+                                </Text>
                                 <Text style={styles.commentText}>
                                     When the list gets too long it loads as a
                                     user scrolls down
                                 </Text>
                             </Text>
                             <Text>
-                                <Text style={styles.commentUser}>username </Text>
+                                <Text style={styles.commentUser}>
+                                    username{" "}
+                                </Text>
                                 <Text style={styles.commentText}>
                                     Now watch me whip. Now watch me nay nay.
                                 </Text>
@@ -126,20 +138,28 @@ class singleImage extends Component {
                     </View>
                 </ScrollView>
                 <View style={styles.options}>
-                    <View style={styles.button}>
-                        <Button
-                            color="gray"
-                            title="Nominate"
-                            onPress={() => console.log("hi")}
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => console.log("hi")}
+                    >
+                        <View style={styles.iconContainer}>
+                        <FontAwesome name="diamond" color="#f4511e" size={20} />
+                        </View>
+                        <Text style={styles.optionText}>Nominate</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => console.log("hi")}
+                    >
+                        <View style={styles.iconContainer}>
+                        <Ionicons
+                            name="ios-chatbubbles"
+                            size={20}
+                            color="#f4511e"
                         />
-                    </View>
-                    <View style={styles.button}>
-                        <Button
-                            color="gray"
-                            title="Comment"
-                            onPress={() => console.log("hi")}
-                        />
-                    </View>
+                        </View>
+                        <Text style={styles.optionText}>Comment</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
