@@ -87,40 +87,41 @@ class singleImage extends Component {
                                 color="teal"
                             />
                         </View>
-                        <View style={{marginLeft:10}}>
-                            <View>
-                                <Text style={styles.commentUser}>username</Text>
+                        <View style={styles.commentContent}>
+                            <Text>
+                                <Text style={styles.commentUser}>username </Text>
                                 <Text style={styles.commentText}>
+                                    Newest comments show up first in this list.Newest comments show up first in this list.
                                     Newest comments show up first in this list.
                                 </Text>
-                            </View>
-                            <View>
-                                <Text style={styles.commentUser}>username</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.commentUser}>username </Text>
                                 <Text style={styles.commentText}>
                                     Older comments move down the list as it
                                     builds. Older women are also pretty hot.
                                 </Text>
-                            </View>
-                            <View>
-                                <Text style={styles.commentUser}>username</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.commentUser}>username </Text>
                                 <Text style={styles.commentText}>
                                     When the list gets too long it loads as a
                                     user scrolls down
                                 </Text>
-                            </View>
-                            <View>
-                                <Text style={styles.commentUser}>username</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.commentUser}>username </Text>
                                 <Text style={styles.commentText}>
                                     When the list gets too long it loads as a
                                     user scrolls down
                                 </Text>
-                            </View>
-                            <View>
-                                <Text style={styles.commentUser}>username</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.commentUser}>username </Text>
                                 <Text style={styles.commentText}>
                                     Now watch me whip. Now watch me nay nay.
                                 </Text>
-                            </View>
+                            </Text>
                         </View>
                     </View>
                 </ScrollView>

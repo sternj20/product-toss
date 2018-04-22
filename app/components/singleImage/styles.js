@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     button: {
-        width: '40%',
+        width: "40%",
         marginLeft: 20
     },
     userHeader: {
@@ -24,11 +24,13 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         marginLeft: 10
     },
-    headerWrapper: {    
+    headerWrapper: {
         flex: 1
     },
     commentContent: {
-        marginLeft: 20
+        marginLeft: 10,
+        flex: 1,
+        flexWrap: "wrap"
     },
     commentUser: {
         fontSize: 20,
@@ -41,7 +43,6 @@ export const styles = StyleSheet.create({
     commentText: {
         fontSize: 17,
         fontWeight: "bold",
-        marginLeft: 10
     },
     headerText: {
         fontSize: 40,
@@ -51,14 +52,14 @@ export const styles = StyleSheet.create({
         alignSelf: "center" // ok
     },
     options: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    justifyContent:'center',
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center"
     },
     bars: {
         position: "absolute",
         right: 10,
         alignItems: "flex-end",
         width: "22%"
-    },
+    }
 });
