@@ -17,7 +17,7 @@ import { deleteImage, toggleCollapse, toggleCommentCollapse } from "../../action
 import { seeFriendsData } from "../../actions/social/social";
 import { navigateToComponent } from "../../utils/helpers.js";
 import Collapsible from "react-native-collapsible";
-
+import { AddCommentForm } from "../AddCommentForm/addCommentForm"
 class singleImage extends Component {
     componentDidMount() {
         this.props.navigation.setParams({
@@ -25,6 +25,9 @@ class singleImage extends Component {
         });
     }
 
+  constructor(props) {
+    super(props);
+  }
     //USE THIS IN PREVSWORLD SOMEHOW
     static navigationOptions = ({ navigation }) => {
         const navigationHelper = params => {
@@ -182,7 +185,7 @@ class singleImage extends Component {
                     </View>
                 </ScrollView>
                 <Collapsible collapsed={this.props.isCollapsed}>
-                    <TextInput>Hi</TextInput>
+<AddCommentForm/>
                 </Collapsible>
                 <View style={styles.options}>
                     <TouchableOpacity
