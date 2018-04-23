@@ -104,3 +104,10 @@ export function toggleCollapse(collapsed, index, destination, secondDestination)
         destination
     }   
 }
+
+export function toggleCommentCollapse(isCollapsed){
+    return {
+        type: 'TOGGLE_COMMENT_COLLAPSE',
+        isCollapsed
+    }
+}

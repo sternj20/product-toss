@@ -90,6 +90,11 @@ const itemReducer = (state = initialState, action) => {
                 ].collapsed = !action.collapsed;
             }
             return { ...state, [action.destination]: stateMutation };
+        case "TOGGLE_COMMENT_COLLAPSE":
+            return {
+                ...state,
+                isCollapsed: !action.isCollapsed
+            }
         default:
             return state;
     }

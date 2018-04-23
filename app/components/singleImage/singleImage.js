@@ -6,13 +6,14 @@ import {
     Image,
     Text,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    TextInput
 } from "react-native";
 import { styles } from "./styles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { deleteImage, toggleCollapse } from "../../actions/items/items";
+import { deleteImage, toggleCollapse, toggleCommentCollapse } from "../../actions/items/items";
 import { seeFriendsData } from "../../actions/social/social";
 import { navigateToComponent } from "../../utils/helpers.js";
 import Collapsible from "react-native-collapsible";
@@ -92,19 +93,24 @@ class singleImage extends Component {
                             style={styles.collapse}
                             collapsed={this.props.singleImage.collapsed}
                         >
-                        {this.props.userID === this.props.singleImage.createdBy ?
-                            <Button
-                                onPress={() =>
-                                    deleteImage(
-                                        this.props.user.uid,
-                                        this.props.singleImage.url,
-                                        this.props.singleImage._id
-                                    )
-                                }
-                                title="Delete Post"
-                            /> : 
-                            <Button onPress ={() => console.log('hi')} title="Report"></Button>
-                        }
+                            {this.props.userID ===
+                            this.props.singleImage.createdBy ? (
+                                <Button
+                                    onPress={() =>
+                                        deleteImage(
+                                            this.props.user.uid,
+                                            this.props.singleImage.url,
+                                            this.props.singleImage._id
+                                        )
+                                    }
+                                    title="Delete Post"
+                                />
+                            ) : (
+                                <Button
+                                    onPress={() => console.log("hi")}
+                                    title="Report"
+                                />
+                            )}
                             <Button
                                 onPress={() => console.log("pressed")}
                                 title="Tweet"
@@ -175,6 +181,9 @@ class singleImage extends Component {
                         </View>
                     </View>
                 </ScrollView>
+                <Collapsible collapsed={this.props.isCollapsed}>
+                    <TextInput>Hi</TextInput>
+                </Collapsible>
                 <View style={styles.options}>
                     <TouchableOpacity
                         style={styles.button}
@@ -191,7 +200,7 @@ class singleImage extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => console.log("hi")}
+                        onPress={() => this.props.toggleCommentCollapse(this.props.isCollapsed)}
                     >
                         <View style={styles.iconContainer}>
                             <Ionicons
@@ -210,12 +219,14 @@ class singleImage extends Component {
 
 const mapStateToProps = state => ({
     singleImage: state.itemReducer.singleImage,
+    isCollapsed: state.itemReducer.isCollapsed,
     user: state.sessionReducer.user,
     userID: state.itemReducer.userID
 });
 
 const mapDispatchToProps = {
-    toggleCollapse
+    toggleCollapse,
+    toggleCommentCollapse
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(singleImage);
