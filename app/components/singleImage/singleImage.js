@@ -92,6 +92,7 @@ class singleImage extends Component {
                             style={styles.collapse}
                             collapsed={this.props.singleImage.collapsed}
                         >
+                        {this.props.userID === this.props.singleImage.createdBy ?
                             <Button
                                 onPress={() =>
                                     deleteImage(
@@ -101,7 +102,9 @@ class singleImage extends Component {
                                     )
                                 }
                                 title="Delete Post"
-                            />
+                            /> : 
+                            <Button onPress ={() => console.log('hi')} title="Report"></Button>
+                        }
                             <Button
                                 onPress={() => console.log("pressed")}
                                 title="Tweet"
@@ -207,7 +210,8 @@ class singleImage extends Component {
 
 const mapStateToProps = state => ({
     singleImage: state.itemReducer.singleImage,
-    user: state.sessionReducer.user
+    user: state.sessionReducer.user,
+    userID: state.itemReducer.userID
 });
 
 const mapDispatchToProps = {
